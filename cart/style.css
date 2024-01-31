@@ -1,0 +1,32 @@
+h1{
+    background-color: #d9d9d9;
+    background-size: 100%;
+}
+#div-products li{
+    background-color: #ffffff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 50%;
+}
+ul{
+    max-width: 240px;
+    min-width: 240px;
+    text-align: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+body{   
+    background-color: #d9d9d9;
+}
+div{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+main{
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto;
+}

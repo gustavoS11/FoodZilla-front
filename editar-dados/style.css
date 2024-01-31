@@ -1,0 +1,31 @@
+body{
+    text-align: center;
+    background-color: #d9d9d9;
+}
+#div-edit{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin: 10px;
+    padding: 20px;
+    width: max-content;
+    background-color: white;
+    border-radius: 16px;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 5px 2px black;
+}
+.input-submit{
+    background-color: #FFD814;
+    border-color: #FCD200;
+    border-radius: 16px;
+    border-width: 1px;
+}
+label{
+    font-weight: 700;
+    display: block;
+    padding-left: 2px;
+    padding-bottom: 2px;
+    font-family: Arial,sans-serif;
+}
