@@ -29,3 +29,16 @@ label{
     padding-bottom: 2px;
     font-family: Arial,sans-serif;
 }
+div{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+main{
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto;
+}
+header{
+    margin-bottom: 20vh;
+}
