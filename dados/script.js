@@ -14,3 +14,11 @@ inputSubmitEmail.addEventListener("click", (event) => {
 async function redirectEmail() {
     window.location.href = "../editar-dados/editar-email/index.html"
 }
+const inputSubmitSenha = document.querySelector("#input-submitSenha")
+inputSubmitSenha.addEventListener("click", (event) => {
+    event.preventDefault()
+    redirectSenha()
+})
+async function redirectSenha() {
+    window.location.href = "../editar-dados/editar-senha/index.html"
+}
