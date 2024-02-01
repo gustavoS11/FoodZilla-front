@@ -1,12 +1,23 @@
 const profile = document.querySelector(".img-profile")
 const search = document.querySelector(".img-search")
 const logo = document.querySelector(".img-logo")
+const container = document.querySelector(".container-wrapper")
 
 profile.addEventListener("click", (event) => {
     window.location.href = "/dados/index.html"
 })
 logo.addEventListener("click", (event) => {
   window.location.href = "/menu/index.html"
+})
+search.addEventListener("click", (event) => {
+  if (container.style.display == "none") {
+    container.style.display = "flex"
+    logo.style.display = "none"
+  }
+  else {
+    container.style.display = "none"
+    logo.style.display = "flex"
+  }
 })
 
 class NavMenu {
