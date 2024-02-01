@@ -180,3 +180,8 @@ nav {
 .input-wrapper input:focus-visible {
   outline: none;
 }
+div{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}

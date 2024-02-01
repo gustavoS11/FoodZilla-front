@@ -19,11 +19,6 @@ main ul{
 body{   
     background-color: #d9d9d9;
 }
-div{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-}
 main{
     box-sizing: border-box;
     width: 100%;
