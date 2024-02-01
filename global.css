@@ -8,6 +8,18 @@ header{
 body{
   overflow-x: hidden;
 }
+input{
+  border-radius: 16px;
+  margin: 5px;
+  padding: 5px;
+}
+.input-submit{
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
+  border-radius: 16px;
+  border-width: 1px;
+}
 .img-menu{
   min-width: 100px;
   max-height: 100px;

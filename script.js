@@ -1,1 +1,1 @@
-window.location.replace('./home/index.html')
+window.location.replace('./menu/index.html')

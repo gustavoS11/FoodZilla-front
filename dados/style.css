@@ -22,9 +22,6 @@ form{
     display: flex;
     flex-direction: column;
 }
-input{
-    border-radius: 16px;
-}
 div{
     display: flex;
     flex-direction: row;

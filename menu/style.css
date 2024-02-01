@@ -5,6 +5,9 @@
     flex-direction: column;
     min-height: 50%;
 }
+.img-li{
+    max-width: 100%;
+}
 main ul{
     max-width: 240px;
     min-width: 240px;

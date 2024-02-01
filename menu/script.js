@@ -7,11 +7,13 @@ async function listProducts() {
         const preco = price.toString().replace(".", ",")
         div.insertAdjacentHTML("beforeend",`
         <ul> 
-            <li><img id="img-li" src="${element.url}" alt="${element.nome}"></li>
+            <li><img class="img-li" src="${element.url}" alt="${element.nome}"></li>
             <li>
                 <h2>${element.nome}</h2>
                 <h3>R$${preco}</h3>
-                ${element.descricao}
+                <label for="input-li">${element.descricao}</label>
+                <br>
+                <input class="input-submit" name="input-li" type="submit" value="Comprar">
             </li>
         </ul>`
         )
