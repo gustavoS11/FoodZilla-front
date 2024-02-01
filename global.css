@@ -102,6 +102,7 @@ nav {
   .nav-list li {
     margin-left: 0;
     opacity: 0;
+    opacity: 0;
   }
   .menu {
     display: block;
