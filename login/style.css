@@ -1,5 +1,5 @@
 body{
-    background-color: #d9d9d9;
+    background-image: url(https://as1.ftcdn.net/v2/jpg/04/30/67/32/1000_F_430673277_Tvc3MrWAr5K42LfiIK5wk8fSeDC5h3B0.jpg);
 }
 form{
     display: flex;
@@ -15,7 +15,7 @@ form{
     transform: translate(-50%);
     margin: 10px;
     width: max-content;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.712);
     border-radius: 16px;
 }
 #div-forms{
@@ -29,6 +29,7 @@ div{
 header{
     margin-bottom: 20vh;
 }
-a{
-    color: black;
+#a-signup{
+    color: #b22020;
+    font-weight: 700;
 }

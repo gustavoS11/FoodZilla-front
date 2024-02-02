@@ -1,11 +1,5 @@
 body{
-    background-color: #d9d9d9;
-}
-form{
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-    border-radius: 10px;
+    background-image: url();
 }
 #div-dados{
     display: flex;
@@ -15,12 +9,17 @@ form{
     transform: translate(-50%);
     margin: 10px;
     width: max-content;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.712);
     border-radius: 16px;
 }
-#div-forms{
+#div-submit{
+    align-self: center;
+}
+.div{
     display: flex;
     flex-direction: column;
+    margin: 10px;
+    border-radius: 10px;
 }
 div{
     display: flex;
