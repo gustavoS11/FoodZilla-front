@@ -7,8 +7,8 @@ header{
 }
 body{
   overflow-x: hidden;
-  background: #1A1919;
-
+  background-color: ; 
+  background-size: cover;
 }
 input{
   border-radius: 16px;
