@@ -1,6 +1,7 @@
 const profile = document.querySelector(".img-profile")
 const search = document.querySelector(".img-search")
 const logo = document.querySelector(".img-logo")
+const cart = document.querySelector(".img-cart")
 const container = document.querySelector(".container-wrapper")
 
 profile.addEventListener("click", (event) => {
@@ -18,6 +19,9 @@ search.addEventListener("click", (event) => {
     container.style.display = "none"
     logo.style.display = "flex"
   }
+})
+cart.addEventListener("click", (event) => {
+  window.location.href=  "/cart/index.html"
 })
 
 class NavMenu {

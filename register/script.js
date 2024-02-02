@@ -1,35 +1,36 @@
-async function registerUser() {
-    const dados  = document.querySelector("body")
-    const register = await fetch(`http://localhost:3000/register/${dados}`)
-    const registerJson = await register.json()
-
+const myHeaders = {
+    "Content-Type": "application/json"
 }
-
-
-
-
-
-
-/*
-async function listProducts() {
-    const products = await fetch("http://localhost:3000/product")
-    const productsJson = await products.json()
-    const div = document.querySelector("#div-products")
-    productsJson.forEach(element => {
-        const price = element.preco
-        const preco = price.toString().replace(".", ",")
-        div.insertAdjacentHTML("beforeend",`
-        <ul> 
-            <li><img class="img-li" src="${element.url}" alt="${element.nome}"></li>
-            <li>
-                <h2>${element.nome}</h2>
-                <h3>R$${preco}</h3>
-                <label for="input-li">${element.descricao}</label>
-                <br>
-                <input class="input-submit" name="input-li" type="submit" value="Comprar">
-            </li>
-        </ul>`
-        )
-    });
+async function registerUser(dados) {
+    console.log(dados)
+    const dadosJson = JSON.stringify(dados)
+    const register = await fetch(`http://localhost:3000/user/register`, {
+        method: 'POST',
+        body: dadosJson,
+        headers: myHeaders
+    })
+    console.log(register)
+    if (register.status == 200) {
+        registerUserJson = await register.json()
+        toastify("Ok, login efetuado com sucesso!", "ok")
+        localStorage.setItem("@token-exemplo", resJson.accessToken)
+        localStorage.setItem("@user-exemplo", JSON.stringify(resJson.user))
+        setTimeout(() => {
+            window.location.href = "/home"
+        }, 3000)
+    } else {
+        toastify("Email ou senha incorretos", "error")
+    }
 }
-listProducts()*/
+const submit = document.querySelector(".input-submit")
+submit.addEventListener("click", (event) => {
+    event.preventDefault()
+    const nome = document.querySelector("#input-name").value
+    const email = document.querySelector("#input-email").value
+    const senha = document.querySelector("#input-password").value
+    const id_tipo_usuario = 1
+    const dados = {
+        id_tipo_usuario,nome,email,senha
+    }
+    registerUser(dados)
+})

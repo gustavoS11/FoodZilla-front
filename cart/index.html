@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../global.css">
     <script type="module" src="./script.js"></script>
     <script type="module" src="/global.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <header>
@@ -21,12 +23,20 @@
                     </div>
                     <ul class="nav-list">
                         <li><a href="/menu/index.html">Menu</a></li>
-                        <li><a href="">Perfil</a></li>
+                        <li><a href="/dados/index.html">Perfl</a></li>
                         <li><a href="/cart/index.html">Carrinho</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="div-logo">
+                <div class="container-wrapper">
+                    <div class="container">
+                        <div class="input-wrapper">
+                            <input placeholder="Pesquisar..."/>
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </div>
+                </div>
                 <img class="img-logo" src="/FoodZillaLogo.PNG" alt="LogoPizzaria">
             </div>
             <div class="div-interact">
@@ -41,46 +51,3 @@
     </main>
 </body>
 </html>
-
-
-
-
-
-<div id="div-dados">
-    <div>
-        <form action="" method="post" id="form-profile">
-            <img class="img-editProfile" src="/fotoPerfil.png" alt="fotoPerfil">
-            <input class="input-submit" id="input-submitProfile" type="submit" value="Editar foto de perfil">
-        </form>
-    </div>
-    <div id="div-forms">
-        <form method="post">
-            <label for="input-name">Nome:</label>
-            <div>
-                <input type="text" name="input-name" id="input-name" readonly>
-                <input class="input-submit" id="input-submitName" type="submit" value="Editar nome">
-            </div>
-        </form>
-        <form method="post">
-            <label for="input-email">Email:</label>
-            <div>
-                <input type="email" name="input-email" id="input-email" readonly>
-                <input class="input-submit" id="input-submitEmail" type="submit" value="Editar email">
-            </div>
-        </form>
-        <form method="post">
-            <label for="input-password">Senha:</label>
-            <div>
-                <input type="password" name="input-password" id="input-password" readonly>
-                <input class="input-submit" id="input-submitPassword" type="submit" value="Editar senha">
-            </div>
-        </form>
-        <form method="post">
-            <label for="input-phone">Número de celular:</label>
-            <div>
-                <input type="number" name="input-phone" id="input-phone" readonly>
-                <input class="input-submit" id="input-submitNumber" type="submit" value="Editar contato">
-            </div>
-        </form>
-    </div>
-</div>
