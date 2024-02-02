@@ -39,40 +39,24 @@
     <main>
         <div id="div-dados">
             <div>
-                <form action="" method="post" id="form-profile">
-                    <img class="img-editProfile" src="/fotoPerfil.png" alt="fotoPerfil">
-                    <input class="input-submit" id="input-submitProfile" type="submit" value="Editar foto de perfil">
-                </form>
+                <img class="img-editProfile" src="/fotoPerfil.png" alt="fotoPerfil">
             </div>
             <div id="div-forms">
-                <form method="post">
+                <div class="div-dados">
                     <label for="input-name">Nome:</label>
-                    <div>
-                        <input type="text" name="input-name" id="input-name" readonly>
-                        <input class="input-submit" id="input-submitName" type="submit" value="Editar nome">
-                    </div>
-                </form>
-                <form method="post">
+                    <input type="text" name="input-name" id="input-name">
+                </div>
+                <div class="div-dados">
                     <label for="input-email">Email:</label>
-                    <div>
-                        <input type="email" name="input-email" id="input-email" readonly>
-                        <input class="input-submit" id="input-submitEmail" type="submit" value="Editar email">
-                    </div>
-                </form>
-                <form method="post">
+                    <input type="email" name="input-email" id="input-email">
+                </div>
+                <div class="div-dados">
                     <label for="input-password">Senha:</label>
-                    <div>
-                        <input type="password" name="input-password" id="input-password" readonly>
-                        <input class="input-submit" id="input-submitPassword" type="submit" value="Editar senha">
-                    </div>
-                </form>
-                <form method="post">
-                    <label for="input-phone">Número de celular:</label>
-                    <div>
-                        <input type="number" name="input-phone" id="input-phone" readonly>
-                        <input class="input-submit" id="input-submitNumber" type="submit" value="Editar contato">
-                    </div>
-                </form>
+                    <input type="password" name="input-password" id="input-password">
+                </div>
+                <div>
+                    <input class="input-submit" type="submit" value="Cadastrar">
+                </div>
             </div>
         </div>
     </main>
