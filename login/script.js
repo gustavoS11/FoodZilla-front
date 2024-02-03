@@ -1,22 +1,34 @@
-async function listProducts() {
-    const products = await fetch("http://localhost:3000/product")
-    const productsJson = await products.json()
-    const div = document.querySelector("#div-products")
-    productsJson.forEach(element => {
-        const price = element.preco
-        const preco = price.toString().replace(".", ",")
-        div.insertAdjacentHTML("beforeend",`
-        <ul> 
-            <li><img class="img-li" src="${element.url}" alt="${element.nome}"></li>
-            <li>
-                <h2>${element.nome}</h2>
-                <h3>R$${preco}</h3>
-                <label for="input-li">${element.descricao}</label>
-                <br>
-                <input class="input-submit" name="input-li" type="submit" value="Comprar">
-            </li>
-        </ul>`
-        )
-    });
+const myHeaders = {
+    "Content-Type": "application/json"
 }
-listProducts()
+async function loginUser(dados) {
+    const dadosJson = JSON.stringify(dados)
+    const login = await fetch(`http://localhost:3000/user/login`, {
+        method: 'POST',
+        body: dadosJson,
+        headers: myHeaders
+    })
+    if (login.status == 200) {
+        console.log(login)
+        loginUserJson = await login.json()
+        toastify("Ok, login efetuado com sucesso!", "ok")
+        localStorage.setItem("@token-exemplo", resJson.accessToken)
+        localStorage.setItem("@user-exemplo", JSON.stringify(resJson.user))
+        setTimeout(() => {
+            window.location.href = "../dados/index.html"
+        }, 3000)
+    } else {
+        /*toastify("Email ou senha incorretos", "error")*/
+        console.log("errado")
+    }
+}
+const submit = document.querySelector(".input-submit")
+submit.addEventListener("click", (event) => {
+    event.preventDefault()
+    const email = document.querySelector("#input-email").value
+    const senha = document.querySelector("#input-password").value
+    const dados = {
+        email,senha
+    }
+    loginUser(dados)
+})
