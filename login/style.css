@@ -1,7 +1,7 @@
 body{
-    background-color: #d9d9d9;
+    background-image: url();
 }
-form{
+.div-dados{
     display: flex;
     flex-direction: column;
     margin: 10px;
@@ -15,10 +15,10 @@ form{
     transform: translate(-50%);
     margin: 10px;
     width: max-content;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.712);
     border-radius: 16px;
 }
-#div-forms{
+#div-divs{
     display: flex;
     flex-direction: column;
 }
@@ -31,4 +31,7 @@ header{
 }
 a{
     color: black;
+}
+.input-submit{
+    width: 100%;
 }
