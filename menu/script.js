@@ -11,9 +11,7 @@ async function listProducts() {
             <li>
                 <h2>${element.nome}</h2>
                 <h3>R$${preco}</h3>
-                <label for="input-li">${element.descricao}</label>
-                <br>
-                <input class="input-submit" id="input-li" name="input-li" type="submit" value="Comprar">
+                <input class="input-submit" name="input-li" type="submit" value="Comprar">
             </li>
         </ul>`
         )
