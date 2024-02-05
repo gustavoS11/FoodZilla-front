@@ -9,14 +9,12 @@ async function listProducts() {
         <ul> 
             <li><img id="img-li" src="${element.url}" alt="${element.nome}"></li>
             <li>
-            
-                <h2>{Adimin}</h2>
-                <h3>{Logar}</h3>
+                <h2>{}</h2>
+                <h3>{}</h3>
                 ${element.descricao}
             </li>
         </ul>`
         )
-        
     });
 }
 listProducts()

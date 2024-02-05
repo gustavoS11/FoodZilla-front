@@ -1,9 +1,9 @@
 header{
-   
+    background-color: #b22020;
     display: flex;
     flex-direction: column;
-
-    align-items: center;
+    list-style: circle;
+    height: 15vh;
   }
   body{
     overflow-x: hidden;
@@ -11,31 +11,26 @@ header{
   .img-menu{
     min-width: 100px;
     max-height: 150px;
-    
-    
   }
   .img-profile{
   max-width: 100px;
   max-height: 150px;
-  padding-top: 1.5rem;
-  }
   
- .img-editProfile{
+
+  }
+  .img-editProfile{
     width: 200px;
       height: 200px;
   }
-
   .img-logo{
     min-width: 100px;
     max-height: 150px;
-    }
-
+  }
   .img-search{
     max-width: 50px;
     max-height: 50px;
     padding: 5px;
   }
-
   .div-class{
     position: absolute;
     right: 2vw;
@@ -65,7 +60,14 @@ header{
     text-transform: uppercase;
     letter-spacing: 4px;
   }
- 
+  nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    background: #b22020;
+    height: 8vh;
+  }
 
  
  
@@ -87,16 +89,6 @@ header{
   
   .nav-list.active {
     transform: translateX(0);
-  }
-  form{
-    display: flex;
-    flex-direction: column;
-  }
-  .form-field{
-    display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
   }
   @keyframes navLinkFade {
     from {
