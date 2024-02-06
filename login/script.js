@@ -9,11 +9,8 @@ async function loginUser(dados) {
         headers: myHeaders
     })
     if (login.status == 200) {
-        console.log(login)
+        console.log("chegou")
         const loginUserJson = await login.json()
-        console.log(loginUserJson)
-        toastify("Ok, login efetuado com sucesso!", "ok")
-
         setTimeout(() => {
             window.location.href = "../dados/index.html"
         }, 3000)
