@@ -1,5 +1,6 @@
 body{
-    background-image: url();
+
+    background-image: url(https://i.redd.it/8g5hszxn3bn61.jpg);
 }
 .div-dados{
     display: flex;
@@ -15,7 +16,7 @@ body{
     transform: translate(-50%);
     margin: 10px;
     width: max-content;
-    background-color: rgba(255, 255, 255, 0.712);
+    background-color: rgba(217, 217, 217, 0.712);
     border-radius: 16px;
 }
 #div-divs{
