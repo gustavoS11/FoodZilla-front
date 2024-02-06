@@ -56,3 +56,11 @@ main {
 .input-submit {
     cursor: pointer;
 }
+
+li div {
+    display: flex;
+    flex-direction: column;
+}
+li{
+    
+}

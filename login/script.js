@@ -10,10 +10,10 @@ async function loginUser(dados) {
     })
     if (login.status == 200) {
         console.log(login)
-        loginUserJson = await login.json()
+        const loginUserJson = await login.json()
+        console.log(loginUserJson)
         toastify("Ok, login efetuado com sucesso!", "ok")
-        localStorage.setItem("@token-exemplo", resJson.accessToken)
-        localStorage.setItem("@user-exemplo", JSON.stringify(resJson.user))
+
         setTimeout(() => {
             window.location.href = "../dados/index.html"
         }, 3000)
@@ -28,7 +28,7 @@ submit.addEventListener("click", (event) => {
     const email = document.querySelector("#input-email").value
     const senha = document.querySelector("#input-password").value
     const dados = {
-        email,senha
+        email, senha
     }
     loginUser(dados)
 })

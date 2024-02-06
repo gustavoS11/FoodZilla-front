@@ -1,6 +1,6 @@
 body {
-
     background-image: url(/FOODZILLAusuário.png);
+    background-size: cover;
 }
 
 .div-dados {
@@ -14,11 +14,11 @@ body {
     display: flex;
     flex-direction: row;
     position: absolute;
-    left: 50%;
-    transform: translate(-50%);
+    right: 30%;
+    transform: translate(50%);
     margin: 10px;
     width: max-content;
-    background-color: rgba(217, 217, 217, 0.712);
+    background-color: rgba(217, 217, 217, 0.726);
     border-radius: 16px;
 }
 
