@@ -14,11 +14,28 @@ async function listProducts() {
                     <h3>R$${preco}</h3>
                 </div>
                 <div>
-                    <input class="input-submit" name="input-li" type="submit" value="Comprar">
+                    <input id="${element.id}" class="input-submit" name="input-li" type="submit" value="Comprar">
                 </div>
             </li>
         </ul>`
         )
+    })
+    
+    const comprarButtons = document.querySelectorAll(".input-submit")
+    comprarButtons.forEach(button => {
+        button.addEventListener("click", (event) => {
+            const productId = event.target.id;
+            console.log("ID do produto selecionado:", productId)
+
+            addToCart(productId)
+        });
     });
 }
 listProducts()
+
+function addToCart(productId) {
+    const cartId = "@foodzilla-cartId";
+    const cart = JSON.parse(localStorage.getItem(cartId)) || [];
+    cart.push(productId);
+    localStorage.setItem(cartId, JSON.stringify(cart));
+}
