@@ -8,7 +8,7 @@ async function displayCart() {
 
     const products = await fetch("http://localhost:3000/product");
     const productsJson = await products.json();
-
+    console.log(productsJson)
     const div = document.querySelector("#div-products");
     div.innerHTML = "";
 
@@ -37,15 +37,13 @@ async function displayCart() {
     });
 }
 
-// Outras funções relacionadas ao script
-
-function increment(id) {
+window.increment = function (id) {
     const input = document.getElementById(id);
     input.stepUp();
     updateLocalStorage(id, input.value);
 }
 
-function decrement(id) {
+window.decrement = function (id) {
     const input = document.getElementById(id);
     input.stepDown();
     updateLocalStorage(id, input.value);
@@ -56,5 +54,4 @@ function updateLocalStorage(id, value) {
     let cart = JSON.parse(localStorage.getItem(cartId)) || {};
     cart[id] = parseInt(value);
     localStorage.setItem(cartId, JSON.stringify(cart));
-    displayCart(); // Atualiza a exibição após a alteração do localStorage
 }

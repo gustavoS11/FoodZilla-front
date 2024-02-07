@@ -5,7 +5,8 @@
     flex-direction: row;
     justify-content: space-between;
 }
-.li-divs{
+
+.li-divs {
     width: 100%;
     padding: 8px;
 }
@@ -21,12 +22,19 @@
     height: 180px;
     object-fit: cover;
 }
-h2{
+
+.div-element {
+    text-align: left;
+}
+
+h2 {
     font-size: 40px;
 }
-h3{
+
+h3 {
     font-size: 30px;
 }
+
 input[type="number"] {
     -moz-appearance: textfield;
     appearance: textfield;
@@ -64,7 +72,8 @@ main ul {
         height: 100px;
         object-fit: cover;
     }
-    h2{
+
+    h2 {
         font-size: 20px;
     }
 }
@@ -98,7 +107,8 @@ li div {
 .li-divs {
     display: flex;
     flex-direction: row;
-    justify-content: space-between; /* Distribui os elementos ao longo do eixo horizontal */
+    justify-content: space-between;
+    /* Distribui os elementos ao longo do eixo horizontal */
     width: 100%;
     padding: 8px;
 }
@@ -110,13 +120,16 @@ li div {
 }
 
 .number-input {
-    width: 40px; /* Ajuste a largura conforme necessário */
+    width: 40px;
+    /* Ajuste a largura conforme necessário */
     padding: 5px;
     text-align: center;
 }
 
-.increment, .decrement {
-    width: 20px; /* Ajuste a largura conforme necessário */
+.increment,
+.decrement {
+    width: 20px;
+    /* Ajuste a largura conforme necessário */
     cursor: pointer;
     text-align: center;
 }
