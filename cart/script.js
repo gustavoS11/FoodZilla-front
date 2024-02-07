@@ -1,12 +1,20 @@
+const myHeaders = {
+    "Content-Type": "application/json"
+}
 async function listProducts() {
-    const products = await fetch("http://localhost:3000/product/user")
-    const productsJson = await products.json()
+    const id = localStorage.getItem("@foodzilla-userId")
+    const order = await fetch("http://localhost:3000/product/user", {
+        method: 'POST',
+        body: id,
+        headers: myHeaders
+    })
+    const orderJson = await products.json()
     const div = document.querySelector("#div-products")
-    productsJson.forEach(element => {
+    orderJson.forEach(element => {
         const price = element.preco
         const preco = price.toString().replace(".", ",")
         div.insertAdjacentHTML("beforeend",`
-        <ul> 
+        <ul>
             <li><img id="img-li" src="${element.url}" alt="${element.nome}"></li>
             <li>
                 <h2>${element.nome}</h2>
