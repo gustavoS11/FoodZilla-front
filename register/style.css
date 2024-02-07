@@ -1,5 +1,5 @@
 body{
-    background-image: url();
+    background-image: url(/FOODZILLAusuário.png);
 }
 #div-dados{
     display: flex;
@@ -21,6 +21,8 @@ body{
 div{
     display: flex;
     flex-direction: row;
+    height: auto;
+    width: auto;
 }
 header{
     margin-bottom: 20vh;

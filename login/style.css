@@ -36,8 +36,9 @@ header {
     margin-bottom: 20vh;
 }
 
-a {
-    color: black;
+#a-signup{
+    color: #B22020;
+    
 }
 
 .input-submit {
