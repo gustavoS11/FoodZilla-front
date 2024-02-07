@@ -1,61 +1,43 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link rel="stylesheet" href="./style.css">
-   <script type="module" src="./script.js"></script>
-    
-    <body>
-        <header>
-            <div>
-                <div class="div-menu">
-                    <nav>
-                    </nav>
-                </div>
-            </div>
-        </header>
-                <main>
-                    <div class="container">
-                        <div class="div-logo">
-                       
-                      
-            
-                        
-                        <img class="img-logo" src="/FoodZillaLogo.PNG" alt="LogoPizzaria">
-                       </div>
+    <script type="module" src="./script.js"></script>
+    <link rel="stylesheet" href="/global.css">
 
-                       <div class="form-field">
-                            <img class="img-profile" src="/fotoPerfil.png" alt="FotoPerfil">
-                        
-                        
-                        <div id="div-forms">
-                            <form method="post">
-                                
-                         <label for="input-name">Adimin:</label>
-                        
-                             <input type="text" name="input-name" id="input-name" >
-                            
-                       
-                           
-                        
-                                <label for="input-email">Email:</label>
-                     
-                                    <input type="email" name="input-email" id="input-email" readonly>
-                                    
-                     
-                         
-                            
-                                <label for="input-password">Senha:</label>
-                 
-                                    <input type="password" name="input-password" id="input-password" readonly>
-                                    <input class="input-submit" id="input-submitPassword" type="submit" value="Logar">
-                       
-                            </form>
-                            
-                        </form>
-                    </div>
-                </div>
-        </header>
-        <main>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Teko&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="div-logo">
+            <img class="img-logo" src="/FoodZillaLogo.PNG" alt="LogoPizzaria">
+        </div>
+    </header>
+    <div class="profile-img">
+    <img class="img-editProfile" src="/fotoPerfil.png" alt="fotoPerfil">
+        
+    </div>  
+        
+    </header>
+    <main>
+        <div id="div-divs">
+            <div class="div-input">
+                <label for="input-email">Insira seu email</label>
+                <input type="email" name="input-email" id="input-email" placeholder="Email...">
+            </div>
+            <div class="div-input">
+                <label for="input-password">Insira sua senha</label>
+                <input type="password" name="input-password" id="input-password" placeholder="Senha...">
+            </div>
+            <div class="div-input">
+                <input class="input-submit" id="input-submitPassword" type="submit" value="Logar">
+            </div>
+        </div>
+    </main>
+</body>
+</html>
