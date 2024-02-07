@@ -9,11 +9,13 @@ async function listProducts() {
         <ul> 
             <li><img class="img-li" src="${element.url}" alt="${element.nome}"></li>
             <li>
-                <h2>${element.nome}</h2>
-                <h3>R$${preco}</h3>
-                <label for="input-li">${element.descricao}</label>
-                <br>
-                <input class="input-submit" id="input-li" name="input-li" type="submit" value="Comprar">
+                <div>
+                    <h2>${element.nome}</h2>
+                    <h3>R$${preco}</h3>
+                </div>
+                <div>
+                    <input class="input-submit" name="input-li" type="submit" value="Comprar">
+                </div>
             </li>
         </ul>`
         )

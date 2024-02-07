@@ -9,8 +9,7 @@ async function registerUser(dados) {
         headers: myHeaders
     })
     if (register.status == 204) {
-        registerUserJson = await register.json()
-        toastify("Ok, login efetuado com sucesso!", "ok")
+        //toastify("Ok, login efetuado com sucesso!", "ok")
         localStorage.setItem("@token-exemplo", resJson.accessToken)
         localStorage.setItem("@user-exemplo", JSON.stringify(resJson.user))
         setTimeout(() => {
@@ -28,7 +27,7 @@ submit.addEventListener("click", (event) => {
     const senha = document.querySelector("#input-password").value
     const id_tipo_usuario = 1
     const dados = {
-        id_tipo_usuario,nome,email,senha
+        id_tipo_usuario, nome, email, senha
     }
     registerUser(dados)
 })

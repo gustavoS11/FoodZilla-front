@@ -8,14 +8,13 @@ async function loginUser(dados) {
         body: dadosJson,
         headers: myHeaders
     })
+    console.log(login)
     if (login.status == 200) {
-        console.log(login)
-        loginUserJson = await login.json()
-        toastify("Ok, login efetuado com sucesso!", "ok")
-        localStorage.setItem("@token-exemplo", resJson.accessToken)
-        localStorage.setItem("@user-exemplo", JSON.stringify(resJson.user))
+        const loginUserJson = await login.json()
+        localStorage.setItem("@foodzilla-userId",loginUserJson.id)
+        localStorage.setItem("@foodzilla-userEmail",loginUserJson.email)
         setTimeout(() => {
-            window.location.href = "../dados/index.html"
+            window.location.href = "../cart/index.html"
         }, 3000)
     } else {
         /*toastify("Email ou senha incorretos", "error")*/
@@ -28,7 +27,7 @@ submit.addEventListener("click", (event) => {
     const email = document.querySelector("#input-email").value
     const senha = document.querySelector("#input-password").value
     const dados = {
-        email,senha
+        email, senha
     }
     loginUser(dados)
 })

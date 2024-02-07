@@ -1,38 +1,46 @@
-body{
-
-    background-image: url(https://i.redd.it/8g5hszxn3bn61.jpg);
+body {
+    background-image: url(/FOODZILLAusuário.png);
+    background-size: cover;
 }
-.div-dados{
+
+.div-dados {
     display: flex;
     flex-direction: column;
     margin: 10px;
     border-radius: 10px;
 }
-#div-dados{
+
+#div-dados {
     display: flex;
     flex-direction: row;
     position: absolute;
-    left: 50%;
-    transform: translate(-50%);
+    right: 30%;
+    transform: translate(50%);
     margin: 10px;
     width: max-content;
-    background-color: rgba(217, 217, 217, 0.712);
+    background-color: rgba(217, 217, 217, 0.726);
     border-radius: 16px;
 }
-#div-divs{
+
+#div-divs {
     display: flex;
     flex-direction: column;
 }
-div{
+
+div {
     display: flex;
     flex-direction: row;
 }
-header{
+
+header {
     margin-bottom: 20vh;
 }
-a{
-    color: black;
+
+#a-signup {
+    color: #b22020;
+    font-size: 30px;
 }
-.input-submit{
+
+.input-submit {
     width: 100%;
 }
