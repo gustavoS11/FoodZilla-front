@@ -9,6 +9,7 @@ header {
 body {
   overflow-x: hidden;
   background-size: cover;
+  font-family: Creepster;
 }
 
 input {
@@ -86,7 +87,7 @@ main {
   margin: 5px;
 }
 
-a {
+a{
   color: #ffffff;
   text-decoration: none;
   transition: 0.3s;
@@ -229,6 +230,3 @@ div {
   gap: 10px;
 }
 
-body {
-  font-family: Creepster;
-}
