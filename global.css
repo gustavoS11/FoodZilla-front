@@ -130,7 +130,7 @@ nav {
 .menu div {
   width: 32px;
   height: 2px;
-  background: #fff;
+  background: #000000;
   margin: 8px;
   transition: 0.3s;
 }
