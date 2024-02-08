@@ -36,6 +36,7 @@ listProducts()
 function addToCart(productId) {
     const cartId = "@foodzilla-cartId";
     const cart = JSON.parse(localStorage.getItem(cartId)) || [];
-    cart.push(productId);
+    cart.push({id : productId, quantidade : 1});
+    console.log(cart)
     localStorage.setItem(cartId, JSON.stringify(cart));
 }
