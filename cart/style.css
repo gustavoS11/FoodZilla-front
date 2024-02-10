@@ -1,32 +1,135 @@
-h1{
-    background-color: #d9d9d9;
-    background-size: 100%;
-}
-#div-products li{
-    background-color: #ffffff;
+#div-products li {
+    background-color: #B22020;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    min-height: 50%;
-}
-ul{
-    max-width: 240px;
-    min-width: 240px;
-    text-align: center;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-}
-body{   
-    background-color: #d9d9d9;
-}
-div{
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    justify-content: space-between;
 }
-main{
+
+.li-divs {
+    width: 100%;
+    padding: 8px;
+}
+
+#div-products {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.img-li {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+}
+
+.div-element {
+    text-align: left;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+
+input[type="number"]::-o-inner-spin-button,
+input[type="number"]::-o-outer-spin-button {
+    -o-appearance: textfield;
+}
+
+main ul {
+    text-align: center;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    min-width: 100%;
+    transition: transform 1s ease-out;
+}
+
+/*@media (min-width: 675px) and (max-width: 794px) {
+    main ul {
+        width: 25vw;
+    }
+}*/
+
+@media (max-width: 674px) {
+    .img-li {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}
+
+/*@media (min-width: 795px) {
+    main ul {
+        min-width: 240px;
+        max-width: 240px;
+    }
+}*/
+
+body {
+    background-color: #1A1919;
+}
+
+main {
     box-sizing: border-box;
     width: 100%;
     margin: 0 auto;
+}
+
+.input-submit {
+    cursor: pointer;
+}
+
+li div {
+    display: flex;
+    flex-direction: column;
+}
+
+.li-divs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* Distribui os elementos ao longo do eixo horizontal */
+    width: 100%;
+    padding: 8px;
+}
+
+.number-input-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.number-input {
+    width: 40px;
+    /* Ajuste a largura conforme necessário */
+    padding: 5px;
+    text-align: center;
+}
+
+.increment,
+.decrement {
+    width: 20px;
+    /* Ajuste a largura conforme necessário */
+    cursor: pointer;
+    text-align: center;
 }

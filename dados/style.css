@@ -1,5 +1,5 @@
 body{
-    background-color: #d9d9d9;
+    background-image: url(/FOODZILLAusuário.png);
 }
 form{
     display: flex;
@@ -15,7 +15,7 @@ form{
     transform: translate(-50%);
     margin: 10px;
     width: max-content;
-    background-color: white;
+    background-color: rgba(217, 217, 217, 0.726);
     border-radius: 16px;
 }
 #div-forms{
