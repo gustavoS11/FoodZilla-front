@@ -254,7 +254,10 @@ a:hover {
 .input-wrapper input:focus-visible {
   outline: none;
 }
-
+.img-logo{
+  height: 100px;
+  width: 120px;
+}
 @media (max-width: 450px) {
   .img-logo {
     min-width: 70px;

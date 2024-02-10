@@ -42,7 +42,6 @@ async function displayCart() {
         }
     });
 
-    const address = 
     const divAddress = document.querySelector("#div-address")
     divAddress.insertAdjacentHTML("beforeend", `
 
