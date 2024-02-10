@@ -163,6 +163,9 @@ li div {
     display: flex;
     flex-direction: row;
     padding: 10px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }
 
 input[type="submit"] {
