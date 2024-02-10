@@ -1,51 +1,46 @@
-body{
-  background-color: #1A1919;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  font-size: 24px;
-  
-
+body {
+  background-image: url(/FOODZILLAusuário.png);
+  background-size: cover;
 }
-#div-divs{
-  text-align: center;
+
+.div-dados {
   display: flex;
   flex-direction: column;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+#div-dados {
+  display: flex;
+  flex-direction: row;
   position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%);
-  background-color: #fff;
-  gap: 5px;
-  padding: 5px;
+  right: 30%;
+  transform: translate(50%);
+  margin: 10px;
+  width: max-content;
+  background-color: rgba(217, 217, 217, 0.726);
   border-radius: 16px;
 }
-.div-input{
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  font-size: 24px;
-}
-#div-container{
-  text-align: center;
+
+#div-divs {
   display: flex;
   flex-direction: column;
 }
-input{
-  background-color: #000000;
-  color: #fff;
-}
-.profile-img{
+
+div {
   display: flex;
-  align-items: center;
-  justify-content: center;
- 
-  
-}
-img-editprofile{
-  min-width:100;
-  max-width: 88;
-
+  flex-direction: row;
 }
 
+header {
+  margin-bottom: 20vh;
+}
 
+#a-signup {
+  color: #b22020;
+  font-size: 30px;
+}
+
+.input-submit {
+  width: 100%;
+}

@@ -1,0 +1,106 @@
+header {
+  background-color: #b22020;
+  display: flex;
+  flex-direction: column;
+  list-style: circle;
+  height: 15vh;
+}
+input {
+  border-radius: 180px;
+  margin: 1px;
+  padding:1px;
+}
+.img-profile {
+  min-width: 50px;
+  max-height: 50px;
+  cursor: pointer;
+  
+}
+.img-cart {
+  min-width: 50px;
+  max-height: 50px;
+  cursor: pointer;
+}
+.img-search {
+  max-width: 1px;
+  max-height: 1px;
+  cursor: pointer;
+}
+.div-interact {
+  position: absolute;
+  right: 2vw;
+  top: 2vh;
+  gap: 5vw;
+  display: flex;
+  align-items: center;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+a{
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  background: #b22020;
+  height: 8vh;
+}
+.nav-list {
+  list-style: none;
+  display: flex;
+}
+.nav-list li {
+  letter-spacing: 3px;
+  margin-left: 32px;
+}
+.div-search {
+  right: 2vw;
+  top: 2vh;
+  gap: 5vw;
+  
+}
+  
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+div {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+
+
+
+
