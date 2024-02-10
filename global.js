@@ -5,7 +5,13 @@ const cart = document.querySelector(".img-cart")
 const container = document.querySelector(".container-wrapper")
 
 profile.addEventListener("click", (event) => {
-    window.location.href = "/login/index.html"
+  const idUsuario = localStorage.getItem("@foodzilla-userId")
+  if (idUsuario) {
+    window.location.href = "/dados/index.html"
+  }
+  else {
+      window.location.href = "/login/index.html"
+  }
 })
 logo.addEventListener("click", (event) => {
   window.location.href = "/menu/index.html"

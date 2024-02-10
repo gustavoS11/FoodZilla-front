@@ -17,63 +17,47 @@
 
 <body>
     <header>
-        <div>
-            <div class="div-menu">
-                <nav>
-                    <div class="menu">
-                        <div class="line-1"></div>
-                        <div class="line-2"></div>
-                        <div class="line-3"></div>
-                    </div>
-                    <ul class="nav-list">
-                        <li><a href="/menu/index.html">Cardápio</a></li>
-                        <li><a href="/perfil/index.html">Perfil</a></li>
-                        <li><a href="/dados/index.html">Alterar Perfil</a></li>
-                        <li><a href="/cart/index.html">Carrinho</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="div-logo">
-                <img class="img-logo" src="/FoodZillaLogo.PNG" alt="LogoPizzaria">
-            </div>
-            <div class="div-interact">
-                <img class="img-search" src="/lupa.png" alt="Lupa">
-                <img class="img-profile" src="/fotoPerfil.png" alt="FotoPerfil">
-                <img class="img-cart" src="/cart.png" alt="Carrinho">
-            </div>
+        <div class="div-menu">
+            <nav class="nav-header">
+                <div class="menu">
+                    <div class="line-1"></div>
+                    <div class="line-2"></div>
+                    <div class="line-3"></div>
+                </div>
+                <ul class="nav-list">
+                    <li><a href="/menu/index.html">Cardápio</a></li>
+                    <li><a href="/perfil/index.html">Perfil</a></li>
+                    <li><a href="/dados/index.html">Alterar Perfil</a></li>
+                    <li><a href="/cart/index.html">Carrinho</a></li>
+                </ul>
+            </nav>
         </div>
-        
+        <div class="div-logo">
+            <img class="img-logo" src="/FoodZillaLogo.PNG" alt="LogoPizzaria">
+        </div>
+        <div class="div-interact">
+            <img class="img-search" src="/lupa.png" alt="Lupa">
+            <img class="img-profile" src="/fotoPerfil.png" alt="FotoPerfil">
+            <img class="img-cart" src="/cart.png" alt="Carrinho">
+        </div>
     </header>
     <main>
         <div id="div-dados">
             <div>
-                <form action="" method="post" id="form-profile">
-                    <img class="img-editProfile" src="/fotoPerfil.png" alt="fotoPerfil">
-                    <input class="input-submit" id="input-submitProfile" type="submit" value="Editar foto de perfil">
-                </form>
+                <img class="img-editProfile" src="/fotoPerfil.png" alt="fotoPerfil">
+                <h1></h1>
             </div>
             <div id="div-forms">
-                <form method="post">
-                    <label for="input-name">Nome:</label>
-                    <div>
-                        <input type="text" name="input-name" id="input-name" readonly>
-                        <input class="input-submit" id="input-submitName" type="submit" value="Editar nome">
-                    </div>
-                </form>
-                <form method="post">
-                    <label for="input-email">Email:</label>
-                    <div>
-                        <input type="email" name="input-email" id="input-email" readonly>
-                        <input class="input-submit" id="input-submitEmail" type="submit" value="Editar email">
-                    </div>
-                </form>
-                <form method="post">
-                    <label for="input-password">Senha:</label>
-                    <div>
-                        <input type="password" name="input-password" id="input-password" readonly>
-                        <input class="input-submit" id="input-submitPassword" type="submit" value="Editar senha">
-                    </div>
-                </form>
+                <div class="div-forms">
+                    <input type="text" name="input-name" id="input-name" readonly>
+                    <input class="input-submit" id="input-submitName" type="submit" value="Editar dados">
+                </div>
+                <div class="div-forms">
+                    <input type="email" name="input-email" id="input-email" readonly>
+                </div>
+                <div class="div-forms">
+                    <input type="password" name="input-password" id="input-password" readonly>
+                </div>
             </div>
         </div>
     </main>

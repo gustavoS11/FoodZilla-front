@@ -1,30 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
-    displayCart();
+    
 });
-
+displayCart();
 async function displayCart() {
-    const cartId = "@foodzilla-cartId";
+    const cartId = "@foodzilla-cart";
     let cart = JSON.parse(localStorage.getItem(cartId)) || {};
 
     const products = await fetch("http://localhost:3000/product");
-    console.log(cart)
     const productsJson = await products.json();
-    const div = document.querySelector("#div-products");
-    div.innerHTML = "";
-
+    const divProducts = document.querySelector("#div-products");
+    divProducts.innerHTML = "";
+    let total = 0
     productsJson.forEach(element => {
         const price = element.preco;
         const preco = price.toString().replace(".", ",");
         const findElement = cart.find((item) => {
             return item.id == element.id
         })
-        console.log(findElement)
 
         const uniqueId = `quantity-${element.id}`;
 
         if (findElement) {
             const quantity = findElement.quantidade
-            div.insertAdjacentHTML("beforeend", `
+            let soma = price * quantity
+            total += soma
+            divProducts.insertAdjacentHTML("beforeend", `
         <ul>
             <li><img class="img-li" src="${element.url}" alt="${element.nome}"></li>
             <li class="li-divs">
@@ -41,29 +41,59 @@ async function displayCart() {
         </ul>`);
         }
     });
-}
 
+    const address = 
+    const divAddress = document.querySelector("#div-address")
+    divAddress.insertAdjacentHTML("beforeend", `
+
+    `)
+
+
+    const Total = total.toFixed(2).toString().replace(".", ",");
+    const divSummary = document.querySelector("#div-summary")
+    divSummary.insertAdjacentHTML("beforeend", `
+        <h1>Total: R$${Total}</h1>
+        <input id="input-finish" type="submit" value="Finalizar">
+    `)
+    const inputSubmit = document.querySelector("#input-finish")
+    inputSubmit.addEventListener("click", (event) => {
+        const idUsuario = localStorage.getItem("@foodzilla-userId")
+        if (idUsuario) {
+            window.location.href = "/finalizar/index.html"
+        }
+        else {
+            window.location.href = "/login/index.html"
+        }
+    })
+}
 window.increment = function (id) {
     const input = document.getElementById(id);
     input.stepUp();
-    updateLocalStorage(id, input.value);
+    const crement = 1
+    updateLocalStorage(id, input.value, crement);
 }
-
 window.decrement = function (id) {
     const input = document.getElementById(id);
     input.stepDown();
-    updateLocalStorage(id, input.value);
+    const crement = 2
+    updateLocalStorage(id, input.value, crement);
 }
-
-function updateLocalStorage(id, value) {
-    console.log(id.split("-"))
-    const cartId = "@foodzilla-cartId";
+function updateLocalStorage(id, value, crement) {
+    const cartId = `@foodzilla-cart`;
     let cart = JSON.parse(localStorage.getItem(cartId)) || {};
-    cart.forEach((item) => {
-        if (item.id == id.split("-")[1]) {
-            item.quantidade++
-        }
-    })
-    console.log(cart)
+    if (crement === 1) {
+        cart.forEach((item) => {
+            if (item.id == id.split("-")[1]) {
+                item.quantidade++
+            }
+        })
+    }
+    else {
+        cart.forEach((item) => {
+            if (item.id == id.split("-")[1]) {
+                item.quantidade--
+            }
+        })
+    }
     localStorage.setItem(cartId, JSON.stringify(cart));
 }

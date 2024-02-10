@@ -8,17 +8,15 @@ async function loginUser(dados) {
         body: dadosJson,
         headers: myHeaders
     })
-    console.log(login)
     if (login.status == 200) {
         const loginUserJson = await login.json()
         localStorage.setItem("@foodzilla-userId",loginUserJson.id)
         localStorage.setItem("@foodzilla-userEmail",loginUserJson.email)
         setTimeout(() => {
             window.location.href = "../cart/index.html"
-        }, 3000)
+        }, 1000)
     } else {
         /*toastify("Email ou senha incorretos", "error")*/
-        console.log("errado")
     }
 }
 const submit = document.querySelector(".input-submit")

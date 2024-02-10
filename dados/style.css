@@ -1,31 +1,111 @@
-body{
-    background-image: url(/FOODZILLAusuário.png);
+body {
+    background-color: black;
 }
-form{
+
+.div-forms {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin: 10px;
     border-radius: 10px;
 }
-#div-dados{
+
+#div-dados {
     display: flex;
     flex-direction: row;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
+    transform: translate(50%);
     margin: 10px;
     width: max-content;
     background-color: rgba(217, 217, 217, 0.726);
     border-radius: 16px;
 }
-#div-forms{
+
+@media (max-width: 1000px) {
+    .img-editProfile {
+        max-width: 140px;
+        max-height: 140px;
+    }
+
+    #div-dados {
+        transform: translate(20%);
+    }
+}
+
+@media (max-width: 800px) {
+    .img-editProfile {
+        max-width: 130px;
+        max-height: 130px;
+    }
+
+    #div-dados {
+        transform: translate(5%);
+    }
+}
+
+@media (max-width: 670px) {
+    .img-editProfile {
+        max-width: 120px;
+        max-height: 120px;
+    }
+
+    #div-dados {
+        transform: translate(0%);
+    }
+}
+
+@media (max-width: 600px) {
+    .img-editProfile {
+        max-width: 110px;
+        max-height: 110px;
+    }
+
+    input {
+        max-width: 100px;
+        padding: 5px;
+        margin: 5px;
+    }
+}
+
+@media (max-width: 410px) {
+    .img-editProfile {
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+    input {
+        max-width: 100px;
+        padding: 5px;
+        margin: 5px;
+    }
+}
+
+@media (max-width: 360px) {
+    .img-editProfile {
+        max-width: 80px;
+        max-height: 80px;
+    }
+
+    input {
+        max-width: 80px;
+        padding: 3px;
+        margin: 3px;
+    }
+}
+
+#div-forms {
     display: flex;
     flex-direction: column;
 }
-div{
+
+div {
     display: flex;
     flex-direction: row;
 }
-header{
+
+header {
     margin-bottom: 20vh;
+}
+
+input {
+    padding: 5px;
+    margin: 5px;
 }

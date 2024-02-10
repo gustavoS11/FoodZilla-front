@@ -9,9 +9,6 @@ async function registerUser(dados) {
         headers: myHeaders
     })
     if (register.status == 204) {
-        //toastify("Ok, login efetuado com sucesso!", "ok")
-        localStorage.setItem("@token-exemplo", resJson.accessToken)
-        localStorage.setItem("@user-exemplo", JSON.stringify(resJson.user))
         setTimeout(() => {
             window.location.href = "/login/index.html"
         }, 3000)
