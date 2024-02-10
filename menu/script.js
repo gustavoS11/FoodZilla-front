@@ -5,7 +5,7 @@ async function listProducts() {
     productsJson.forEach(element => {
         const price = element.preco
         const preco = price.toString().replace(".", ",")
-        div.insertAdjacentHTML("beforeend",`
+        div.insertAdjacentHTML("beforeend", `
         <ul> 
             <li><img class="img-li" src="${element.url}" alt="${element.nome}"></li>
             <li>
@@ -20,12 +20,11 @@ async function listProducts() {
         </ul>`
         )
     })
-    
+
     const comprarButtons = document.querySelectorAll(".input-submit")
     comprarButtons.forEach(button => {
         button.addEventListener("click", (event) => {
             const productId = event.target.id;
-            console.log("ID do produto selecionado:", productId)
 
             addToCart(productId)
         });
@@ -34,9 +33,21 @@ async function listProducts() {
 listProducts()
 
 function addToCart(productId) {
-    const cartId = "@foodzilla-cartId";
-    const cart = JSON.parse(localStorage.getItem(cartId)) || [];
-    cart.push({id : productId, quantidade : 1});
-    console.log(cart)
+    const cartId = `@foodzilla-cart`;
+    let cart = JSON.parse(localStorage.getItem(cartId)) || [];
+    const findElement = cart.find((item) => {
+        return item.id == productId
+    })
+    if (findElement) {
+        cart.forEach((item) => {
+            if (item.id == productId) {
+                item.quantidade++
+            }
+        })
+    }
+    else {
+        cart.push({ id: productId, quantidade: 1 })
+    }
+
     localStorage.setItem(cartId, JSON.stringify(cart));
 }

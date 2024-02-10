@@ -1,21 +1,27 @@
 header {
   background-color: #b22020;
   display: flex;
-  flex-direction: column;
-  list-style: circle;
+  flex-direction: row;
+  align-items: center;
   height: 15vh;
+  justify-content: space-between;
 }
 
 body {
   overflow-x: hidden;
   background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
   font-family: Creepster;
+}
+
+main {
+  width: 100%;
 }
 
 input {
   border-radius: 16px;
-  margin: 5px;
-  padding: 5px;
 }
 
 .input-submit {
@@ -26,46 +32,78 @@ input {
   border-width: 1px;
 }
 
-.img-menu {
-  min-width: 100px;
-  max-height: 100px;
+@media (min-width: 451px) {
+  .img-menu {
+    min-width: 100px;
+    max-height: 100px;
+  }
+
+  .img-editProfile {
+    width: 200px;
+    height: 200px;
+  }
+
+  .img-logo {
+    min-width: 80px;
+    max-height: 96px;
+  }
+
+  .img-profile {
+    min-width: 35px;
+    max-height: 35px;
+    cursor: pointer;
+  }
+
+  .img-cart {
+    min-width: 35px;
+    max-height: 35px;
+    cursor: pointer;
+  }
+
+  .img-search {
+    max-width: 35px;
+    max-height: 35px;
+    cursor: pointer;
+  }
 }
 
-.img-editProfile {
-  width: 200px;
-  height: 200px;
-}
+@media (max-width: 450px) {
+  .img-menu {
+    min-width: 100px;
+    max-height: 100px;
+  }
 
-.img-logo {
-  min-width: 100px;
-  max-height: 120px;
-}
+  .img-logo {
+    min-width: 60px;
+    max-height: 72px;
+  }
 
-.img-profile {
-  min-width: 50px;
-  max-height: 50px;
-  cursor: pointer;
-}
+  .img-profile {
+    min-width: 20px;
+    max-height: 20px;
+    cursor: pointer;
+  }
 
-.img-cart {
-  min-width: 50px;
-  max-height: 50px;
-  cursor: pointer;
-}
+  .img-cart {
+    min-width: 20px;
+    max-height: 20px;
+    cursor: pointer;
+  }
 
-.img-search {
-  max-width: 50px;
-  max-height: 50px;
-  cursor: pointer;
+  .img-search {
+    max-width: 20px;
+    max-height: 20px;
+    cursor: pointer;
+  }
 }
 
 .div-interact {
-  position: absolute;
   right: 2vw;
   top: 2vh;
-  gap: 5vw;
+  gap: 20px;
   display: flex;
   align-items: center;
+  padding: 10px;
 }
 
 .div-logo {
@@ -82,12 +120,7 @@ input {
   padding: 0;
 }
 
-main {
-  padding: 20px;
-  margin: 5px;
-}
-
-a{
+a {
   color: #ffffff;
   text-decoration: none;
   transition: 0.3s;
@@ -103,13 +136,11 @@ a:hover {
   letter-spacing: 4px;
 }
 
-nav {
-  display: flex;
+.nav-header {
   justify-content: space-around;
   align-items: center;
   font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
   background: #b22020;
-  height: 8vh;
 }
 
 .nav-list {
@@ -142,7 +173,7 @@ nav {
     left: 0;
     width: 30vw;
     height: 85vh;
-    background: #000000;
+    background: #574949;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
@@ -224,9 +255,65 @@ nav {
   outline: none;
 }
 
-div {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
+@media (max-width: 450px) {
+  .img-logo {
+    min-width: 70px;
+    height: 84px;
+  }
+
+  .img-profile {
+    min-width: 40px;
+    max-height: 40px;
+    cursor: pointer;
+  }
+
+  .img-cart {
+    min-width: 40px;
+    max-height: 40px;
+    cursor: pointer;
+  }
+
+  .img-search {
+    max-width: 40px;
+    max-height: 40px;
+    cursor: pointer;
+  }
+
+  .menu div {
+    margin: 5px;
+  }
 }
 
+@media (max-width: 380px) {
+  .nav-list {
+    top: 10vh;
+    height: 90vh;
+  }
+
+  header {
+    height: 10vh;
+  }
+
+  .img-logo {
+    min-width: 50px;
+    height: 60px;
+  }
+
+  .img-profile {
+    min-width: 30px;
+    max-height: 30px;
+    cursor: pointer;
+  }
+
+  .img-cart {
+    min-width: 30px;
+    max-height: 30px;
+    cursor: pointer;
+  }
+
+  .img-search {
+    max-width: 30px;
+    max-height: 30px;
+    cursor: pointer;
+  }
+}
