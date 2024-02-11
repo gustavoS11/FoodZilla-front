@@ -44,3 +44,19 @@ header {
 .input-submit {
     width: 100%;
 }
+input{
+    padding: 8px;
+}
+.img-editProfile{
+    width: 200px;
+    height: 200px;
+}
+@media(max-width: 760px) {
+    .img-editProfile{
+        width: 150px;
+        height: 150px;
+    }
+}
+@media (max-width: 670px) {
+
+}

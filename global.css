@@ -3,7 +3,8 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 15vh;
+  height: 110px;
+  width: 100%;
   justify-content: space-between;
 }
 
@@ -32,78 +33,12 @@ input {
   border-width: 1px;
 }
 
-@media (min-width: 451px) {
-  .img-menu {
-    min-width: 100px;
-    max-height: 100px;
-  }
-
-  .img-editProfile {
-    width: 200px;
-    height: 200px;
-  }
-
-  .img-logo {
-    min-width: 80px;
-    max-height: 96px;
-  }
-
-  .img-profile {
-    min-width: 35px;
-    max-height: 35px;
-    cursor: pointer;
-  }
-
-  .img-cart {
-    min-width: 35px;
-    max-height: 35px;
-    cursor: pointer;
-  }
-
-  .img-search {
-    max-width: 35px;
-    max-height: 35px;
-    cursor: pointer;
-  }
-}
-
-@media (max-width: 450px) {
-  .img-menu {
-    min-width: 100px;
-    max-height: 100px;
-  }
-
-  .img-logo {
-    min-width: 60px;
-    max-height: 72px;
-  }
-
-  .img-profile {
-    min-width: 20px;
-    max-height: 20px;
-    cursor: pointer;
-  }
-
-  .img-cart {
-    min-width: 20px;
-    max-height: 20px;
-    cursor: pointer;
-  }
-
-  .img-search {
-    max-width: 20px;
-    max-height: 20px;
-    cursor: pointer;
-  }
-}
-
 .div-interact {
-  right: 2vw;
-  top: 2vh;
   gap: 20px;
   display: flex;
   align-items: center;
   padding: 10px;
+  margin: 3px;
 }
 
 .div-logo {
@@ -255,39 +190,112 @@ a:hover {
   outline: none;
 }
 .img-logo{
-  height: 100px;
-  width: 120px;
+  max-height: 100%;
+  max-width: 100%;
+  width: 200px;
 }
-@media (max-width: 450px) {
+.img-menu {
+  width: 100px;
+  height: 100px;
+}
+
+.img-profile {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.img-cart {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.img-search {
+  max-width: 50px;
+  max-height: 50px;
+  cursor: pointer;
+}
+@media (max-width: 310px) {
+  .nav-list {
+    top: 7vh;
+    height: 93vh;
+  }
+
+  header {
+    height: 7vh;
+  }
   .img-logo {
-    min-width: 70px;
-    height: 84px;
+    width: 70px;
+    height: 100%;
   }
 
   .img-profile {
-    min-width: 40px;
-    max-height: 40px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
   }
 
   .img-cart {
-    min-width: 40px;
-    max-height: 40px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
   }
 
   .img-search {
-    max-width: 40px;
-    max-height: 40px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+}
+@media (min-width: 311px) and (max-width: 390px) {
+  .img-logo {
+    width: 90px;
+    height: 100%;
+  }
+
+  .img-profile {
+    width: 30px;
+    height: 30px;
     cursor: pointer;
   }
 
-  .menu div {
-    margin: 5px;
+  .img-cart {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .img-search {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
   }
 }
+@media (min-width: 391px) and (max-width: 410px) {
+  .img-profile {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+  }
 
-@media (max-width: 380px) {
+  .img-cart {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+  }
+
+  .img-search {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+  }
+  .img-logo{
+    width: 120px;
+    height: 100%;
+  }
+}
+@media (min-width: 311px) and (max-width: 570px) {
   .nav-list {
     top: 10vh;
     height: 90vh;
@@ -297,26 +305,31 @@ a:hover {
     height: 10vh;
   }
 
-  .img-logo {
-    min-width: 50px;
-    height: 60px;
+  @media (min-width: 411px) {
+    .img-cart {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+    }
+  
+    .img-profile {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+    }
+  
+    .img-search {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+    }
+    .img-logo {
+      width: 160px;
+      height: 100%;
+    }
   }
 
-  .img-profile {
-    min-width: 30px;
-    max-height: 30px;
-    cursor: pointer;
-  }
-
-  .img-cart {
-    min-width: 30px;
-    max-height: 30px;
-    cursor: pointer;
-  }
-
-  .img-search {
-    max-width: 30px;
-    max-height: 30px;
-    cursor: pointer;
+  .menu div {
+    margin: 5px;
   }
 }

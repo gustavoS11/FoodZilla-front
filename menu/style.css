@@ -12,7 +12,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     padding: 15px;
-    justify-content: space-around;
     gap: 10px;
     text-align: center;
 }
@@ -36,6 +35,14 @@ main ul {
 
 }
 
+@media (max-width: 310px) {
+    h2{
+        font-size: 15px;
+    }
+    h3{
+        font-size: 13px;
+    }
+}
 @media (min-width: 675px) and (max-width: 794px) {
     main ul {
         width: 25vw;
