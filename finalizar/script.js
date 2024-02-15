@@ -29,11 +29,11 @@ async function displayCart() {
         <ul>
             <li class="li-divs">
                 <div>
-                    <h1>${element.nome}</h1>
+                    <h2>${element.nome}</h2>
                 </div>
                 <div class="number-input-wrapper">
-                    <h2>Quantidade: ${quantity}</h2>
-                    <h2>Subtotal: ${Soma}</h2>
+                    <h3>Quantidade: ${quantity}</h3>
+                    <h3>Subtotal: ${Soma}</h3>
                 </div>
             </li>
         </ul>`);
@@ -42,6 +42,6 @@ async function displayCart() {
     const Total = total.toFixed(2).toString().replace(".", ",");
     const divSummary = document.querySelector("#div-summary")
     divSummary.insertAdjacentHTML("beforeend", `
-        <h4>Total: R$${Total}</h4>
+        <h1>Total: R$${Total}</h4>
     `)
 }

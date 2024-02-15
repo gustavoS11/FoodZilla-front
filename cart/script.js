@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
 });
 displayCart();
 async function displayCart() {
@@ -10,7 +10,6 @@ async function displayCart() {
     const productsJson = await products.json();
     const divProducts = document.querySelector("#div-products");
     divProducts.innerHTML = "";
-    let total = 0
     productsJson.forEach(element => {
         const price = element.preco;
         const preco = price.toString().replace(".", ",");
@@ -21,9 +20,6 @@ async function displayCart() {
         const uniqueId = `quantity-${element.id}`;
 
         if (findElement) {
-            const quantity = findElement.quantidade
-            let soma = price * quantity
-            total += soma
             divProducts.insertAdjacentHTML("beforeend", `
         <ul>
             <li><img class="img-li" src="${element.url}" alt="${element.nome}"></li>
@@ -34,7 +30,7 @@ async function displayCart() {
                 </div>
                 <div class="number-input-wrapper">
                     <div class="decrement" data-id="${uniqueId}" onclick="decrement('${uniqueId}')">-</div>
-                    <input type="number" class="number-input" id="${uniqueId}" value="${quantity}" min="1" onchange="updateLocalStorage('${element.id}', this.value)">
+                    <input type="number" class="number-input" id="${uniqueId}" value="${findElement.quantidade}" min="1" onchange="updateLocalStorage('${element.id}', this.value)">
                     <div class="increment" data-id="${uniqueId}" onclick="increment('${uniqueId}')">+</div>
                 </div>
             </li>
@@ -46,24 +42,7 @@ async function displayCart() {
     divAddress.insertAdjacentHTML("beforeend", `
 
     `)
-
-
-    const Total = total.toFixed(2).toString().replace(".", ",");
-    const divSummary = document.querySelector("#div-summary")
-    divSummary.insertAdjacentHTML("beforeend", `
-        <h1>Total: R$${Total}</h1>
-        <input id="input-finish" type="submit" value="Finalizar">
-    `)
-    const inputSubmit = document.querySelector("#input-finish")
-    inputSubmit.addEventListener("click", (event) => {
-        const idUsuario = localStorage.getItem("@foodzilla-userId")
-        if (idUsuario) {
-            window.location.href = "/finalizar/index.html"
-        }
-        else {
-            window.location.href = "/login/index.html"
-        }
-    })
+    summary(cart)
 }
 window.increment = function (id) {
     const input = document.getElementById(id);
@@ -71,7 +50,7 @@ window.increment = function (id) {
     const crement = 1
     updateLocalStorage(id, input.value, crement);
 }
-window.decrement = function (id) {
+window.decrement = function (id, total) {
     const input = document.getElementById(id);
     input.stepDown();
     const crement = 2
@@ -90,9 +69,64 @@ function updateLocalStorage(id, value, crement) {
     else {
         cart.forEach((item) => {
             if (item.id == id.split("-")[1]) {
-                item.quantidade--
+                if (item.quantidade > 1) {
+                    item.quantidade--
+                }
             }
         })
     }
     localStorage.setItem(cartId, JSON.stringify(cart));
+    summary(cart)
+}
+async function summary(cart) {
+    const idUsuario = localStorage.getItem("@foodzilla-userId")
+    const dados = {
+        id: idUsuario
+    }
+    const dadosJson = JSON.stringify(dados)
+    const myHeaders = {
+        "Content-Type": "application/json"
+    }
+    const address = await fetch(`http://localhost:3000/user/address`, {
+        method: 'POST',
+        body: dadosJson,
+        headers: myHeaders
+    })
+    const addressJson = await address.json();
+    console.log(addressJson[0].endereco)
+    const products = await fetch("http://localhost:3000/product");
+    const productsJson = await products.json();
+    let total = 0
+    productsJson.forEach(element => {
+        const price = element.preco;
+        const preco = price.toString().replace(".", ",");
+        const findElement = cart.find((item) => {
+            return item.id == element.id
+        })
+
+        const uniqueId = `quantity-${element.id}`;
+
+        if (findElement) {
+            const quantity = findElement.quantidade
+            let soma = price * quantity
+            total += soma
+        }
+    })
+    const Total = total.toFixed(2).toString().replace(".", ",");
+    const divSummary = document.querySelector("#div-summary")
+    divSummary.innerHTML = ""
+    divSummary.insertAdjacentHTML("beforeend", `
+        <h1>Total: R$${Total}</h1>
+        <input id="input-finish" type="submit" value="Finalizar">
+    `)
+    const inputSubmit = document.querySelector("#input-finish")
+    inputSubmit.addEventListener("click", (event) => {
+        const idUsuario = localStorage.getItem("@foodzilla-userId")
+        if (idUsuario) {
+            window.location.href = "/finalizar/index.html"
+        }
+        else {
+            window.location.href = "/login/index.html"
+        }
+    })
 }

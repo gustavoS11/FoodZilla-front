@@ -31,8 +31,8 @@ cart.addEventListener("click", (event) => {
 })
 
 class NavMenu {
-    constructor(mobileMenu, navList, navLinks) {
-      this.mobileMenu = document.querySelector(mobileMenu);
+    constructor(Menu, navList, navLinks) {
+      this.Menu = document.querySelector(Menu);
       this.navList = document.querySelector(navList);
       this.navLinks = document.querySelectorAll(navLinks);
       this.activeClass = "active";
@@ -51,16 +51,16 @@ class NavMenu {
 
     handleClick() {
       this.navList.classList.toggle(this.activeClass);
-      this.mobileMenu.classList.toggle(this.activeClass);
+      this.Menu.classList.toggle(this.activeClass);
       this.animateLinks();
     }
 
     addClickEvent() {
-      this.mobileMenu.addEventListener("click", this.handleClick);
+      this.Menu.addEventListener("click", this.handleClick);
     }
 
     init() {
-      if (this.mobileMenu) {
+      if (this.Menu) {
         this.addClickEvent();
       }
       return this;
