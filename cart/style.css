@@ -161,14 +161,34 @@ li div {
 
 #div-summary {
     background-color: #B22020;
-    justify-content: space-evenly;
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
     padding: 10px;
     position: absolute;
     width: 100%;
     bottom: 0;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+#div-total {
+    justify-content: space-around;
+    display: flex;
+    padding: 10px;
+}
+
+#div-address {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+#input-address {
+    padding: 10px;
+    border: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 input[type="submit"] {
@@ -194,4 +214,21 @@ h1 {
 .increment {
     background-color: #fff;
     border-radius: 50px;
+}
+
+main select {
+    border: none;
+    border-radius: 16px;
+    padding: 8px;
+    font-weight: 600;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    cursor: pointer;
+}
+
+main option {
+    font-weight: 600;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 16px;
 }
