@@ -1,7 +1,4 @@
-body {
-  background-image: url(/FOODZILLAusuário.png);
-  background-size: cover;
-}
+
 #div-products li {
   background-color: #B22020;
   text-align: center;
@@ -24,6 +21,12 @@ body {
   flex-wrap: wrap;
   margin-top: 30px;
   margin-bottom: 30px;
+}
+.img-logo {
+  width: 130px;
+  height: 100px;
+  text-align: center;
+
 }
 
 .img-li {
@@ -116,7 +119,7 @@ main ul {
 }
 
 body {
-  background-color: #1A1919;
+  background-color: #e03434;
 }
 
 main {
