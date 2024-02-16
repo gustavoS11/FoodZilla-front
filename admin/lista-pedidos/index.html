@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FoodZilla's APP</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="../../global.css">
-    <script defer type="module" src="./script.js"></script>
-    <script defer type="module" src="/global.js"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="../global.css">
+    <script type="module" src="./script.js"></script>
+    <script type="module" src="/global.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Teko&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body>
     <header>
         <div class="div-menu">
@@ -28,19 +27,39 @@
                     <div class="line-3"></div>
                 </div>
                 <ul class="nav-list">
-                    <li><a href="/menu/index.html">Cardápio</a></li>
-                    <li><a href="/perfil/index.html">Perfil</a></li>
-                    <li><a href="/dados/index.html">Alterar Perfil</a></li>
-                    <li><a href="/cart/index.html">Carrinho</a></li>
-                </ul>
+                    <li><a href="/lista/index.html">Lista de Pedidos</a></li>
+                    <li><a href="/bairro/index.html">Bairro</a></li>
+                    </ul>
             </nav>
         </div>
+        <div class="div-logo">
+            <img class="img-logo" src="/FoodZillaLogo.PNG" alt="LogoPizzaria">
+            <div class="container-wrapper">
+                <div class="container">
+                    <div class="input-wrapper">
+                        <input placeholder="Pesquisar..." />
+                        <i class="fa fa-search"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="div-interact">
+            <img class="img-profile" src="/fotoPerfil.png" alt="FotoPerfil">
+    </div>
     </header>
     <main>
-        <div id="div-orders"></div>
+        <div id="div-products"></div>
+        <div id="div-address"></div>
+        <div id="div-summary"></div>
     </main>
 </body>
+
 </html>
+                            
+                              
+            
+        
+  
      
         
                 
