@@ -7,8 +7,8 @@
     <title>FoodZilla's APP</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="../global.css">
-    <script type="module" src="./script.js"></script>
-    <script type="module" src="/global.js"></script>
+    <script defer="module" src="./script.js"></script>
+    <script defer="module" src="/global.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,33 +20,31 @@
 <body>
     <header>
         <div class="div-menu">
+            <div class="div-logo">
+                <img class="img-logo" src="/FoodZillaLogo.PNG" alt="LogoPizzaria">
+                <div class="container-wrapper">
+                    <div class="container">
+                        <div class="input-wrapper">
+                            <ul class="nav-list">
+                                <li><a href="/lista/index.html">Lista de Pedidos</a></li>
+                                <li><a href="/bairro/index.html">Bairro</a></li>
+                            </ul>
+                            <input placeholder="Pesquisar..." />
+                            <i class="fa fa-search"></i>
+                        </div>
+            
             <nav class="nav-header">
                 <div class="menu">
                     <div class="line-1"></div>
                     <div class="line-2"></div>
                     <div class="line-3"></div>
                 </div>
-                <ul class="nav-list">
-                    <li><a href="/lista/index.html">Lista de Pedidos</a></li>
-                    <li><a href="/bairro/index.html">Bairro</a></li>
-                    
-                    
-                </ul>
+                
             </nav>
+            <div>
+           
         </div>
-        <div class="div-logo">
-            <img class="img-logo" src="/FoodZillaLogo.PNG" alt="LogoPizzaria">
-            <div class="container-wrapper">
-                <div class="container">
-                    <div class="input-wrapper">
-                        <input placeholder="Pesquisar..." />
-                        <i class="fa fa-search"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="div-interact">
-            <img class="img-profile" src="/fotoPerfil.png" alt="FotoPerfil">
+     
     </div>
     </header>
     <main>
