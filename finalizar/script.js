@@ -36,12 +36,16 @@ async function displayCart() {
                     <h3>Subtotal: ${Soma}</h3>
                 </div>
             </li>
-        </ul>`);
+        </ul>
+        `);
         }
     });
+    divProducts.insertAdjacentHTML("beforeend", `
+        <div id="div-summary"></div>
+    `)
     const Total = total.toFixed(2).toString().replace(".", ",");
     const divSummary = document.querySelector("#div-summary")
     divSummary.insertAdjacentHTML("beforeend", `
-        <h1>Total: R$${Total}</h4>
+        <h2>Total: R$${Total}</h2>
     `)
 }

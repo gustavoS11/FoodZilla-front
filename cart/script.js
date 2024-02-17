@@ -78,8 +78,34 @@ function updateLocalStorage(id, value, crement) {
 }
 async function summary(cart) {
     const carrinho = cart
-    let frete = 0
-    calculator(carrinho, frete)
+    const products = await fetch("http://localhost:3000/product");
+    const productsJson = await products.json();
+    let total = 0
+    productsJson.forEach(element => {
+        const price = element.preco;
+        const preco = price.toString().replace(".", ",");
+        const findElement = cart.find((item) => {
+            return item.id == element.id
+        })
+
+        const uniqueId = `quantity-${element.id}`;
+
+        if (findElement) {
+            const quantity = findElement.quantidade
+            let soma = price * quantity
+            total += soma
+        }
+    })
+    const Total = total.toFixed(2).toString().replace(".", ",");
+    const divSummary = document.querySelector("#div-summary")
+    divSummary.innerHTML = ""
+    divSummary.insertAdjacentHTML("beforeend", `
+        <div id="div-address"></div>
+        <div id="div-total">
+            <h1>Total: R$${Total}</h1>
+            <input id="input-finish" type="submit" value="Finalizar">
+        </div>
+    `)
     const idUsuario = localStorage.getItem("@foodzilla-userId")
     const dados = {
         id: idUsuario
@@ -99,60 +125,25 @@ async function summary(cart) {
         <select type="text" name="select" id="select"></select>
         <input type="text" name="input-address" id="input-address" value="${addressJson[0].endereco}">
     `)
-    freight(carrinho, neighborhoodsJson)
+    freight(neighborhoodsJson, carrinho)
 }
-async function calculator(carrinho, frete) {
-    let total = frete
-    const products = await fetch("http://localhost:3000/product");
-    const productsJson = await products.json();
-    productsJson.forEach(element => {
-        const price = element.preco;
-        const preco = price.toString().replace(".", ",");
-        const findElement = carrinho.find((item) => {
-            return item.id == element.id
-        })
-
-        if (findElement) {
-
-            const quantity = findElement.quantidade
-            let soma = price * quantity
-            total += soma
-        }
-    })
-    const Total = total.toFixed(2).toString().replace(".", ",");
-    const divSummary = document.querySelector("#div-summary")
-    divSummary.innerHTML = ""
-    divSummary.insertAdjacentHTML("beforeend", `
-        <div id="div-address"></div>
-        <div id="div-total">
-            <h1>Total: R$${Total}</h1>
-            <input id="input-finish" type="submit" value="Finalizar">
-        </div>
-    `)
-}
-async function freight(carrinho, neighborhoodsJson) {
-    const select = document.querySelector("#select");
-
-    select.addEventListener("change", function () {
-        const selectedOption = select.options[select.selectedIndex];
-
-        const newFreight = parseFloat(selectedOption.value);
-
-        calculator(carrinho, newFreight);
-    });
-
+async function freight(neighborhoodsJson, carrinho) {
+    const select = document.querySelector("#select")
     neighborhoodsJson.forEach(element => {
         select.insertAdjacentHTML("beforeend", `
-            <option name="${element.nome}" value="${element.frete}">${element.nome}</option>
-        `);
+            <option value="${element.frete}">${element.nome}</option>
+        `)
+    })
+    select.addEventListener('change', function () {
+        const frete = select.options[select.selectedIndex].value
+        const bairro = select.options[select.selectedIndex].innerHTML
+        localStorage.setItem("@foodzilla-neighborhood", bairro)
+        localStorage.setItem("@foodzilla-frete", frete)
     });
-
-    // summary(carrinho, parseFloat(select.value));
-
-    const inputSubmit = document.querySelector("#input-finish");
+    const inputSubmit = document.querySelector("#input-finish")
     inputSubmit.addEventListener("click", (event) => {
-        finish();
-    });
+        finish()
+    })
 }
 async function finish() {
     const inputAddress = document.querySelector("#input-address")
@@ -161,6 +152,7 @@ async function finish() {
     console.log(neighborhood)
     const address = inputAddress.value
     const user = localStorage.getItem("@foodzilla-userId")
+    localStorage.setItem("@foodzilla-endereco", address)
     const endereco = {
         endereco: address,
         id: user

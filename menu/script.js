@@ -29,6 +29,10 @@ async function listProducts() {
             addToCart(productId)
         });
     });
+    const inputFinish = document.querySelector("#input-finish")
+    inputFinish.addEventListener("click", () => {
+        window.location.href = "/cart/index.html"
+    })
 }
 listProducts()
 
