@@ -1,80 +1,27 @@
 
-#div-products li {
-  background-color: #B22020;
-  text-align: center;
+body {
+  background-color: #d81313e0;
+  justify-content: space-evenly;
   display: flex;
+  font-size:20px ;
   flex-direction: row;
-  justify-content: space-between;
-  border-radius: 25px;
-  margin: 5px;
+  padding:37px;
 }
-
-.li-divs {
+main {
+  box-sizing: border-box;
   width: 100%;
-  padding: 8px;
-  justify-content: space-between;
-}
-
-#div-products {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin: 0 auto;
 }
 .img-logo {
-  width: 130px;
-  height: 100px;
   text-align: center;
-
+  width: 200px;
+  height: 130px;
 }
-
-.img-li {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 16px;
-}
-
-.div-element {
-  text-align: left;
-}
-
-h2 {
-  font-size: 40px;
-}
-
-h3 {
-  font-size: 30px;
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
-  appearance: textfield;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-}
-
-
-input[type="number"]::-o-inner-spin-button,
-input[type="number"]::-o-outer-spin-button {
-  -o-appearance: textfield;
-}
-
-main ul {
+.img clas {
   text-align: center;
-  display: flex;
-  position: relative;
-  flex-direction: row;
-  width: 80%;
-  transition: transform 1s ease-out;
-  padding: 10px;
-  align-self: center;
+  width: 1px;
+  height: 2px;
 }
-
 @media (max-width: 674px) {
   .img-li {
       width: 80px;
@@ -118,70 +65,39 @@ main ul {
   }
 }
 
-body {
-  background-color: #e03434;
-}
 
-main {
-  box-sizing: border-box;
-  width: 100%;
-  margin: 0 auto;
-}
 
-.input-submit {
-  cursor: pointer;
-}
 
-li div {
-  display: flex;
-  flex-direction: column;
-}
 
-.li-divs {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  padding: 8px;
-}
 
-.number-input-wrapper {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-}
 
-.number-input {
-  width: 40px;
-  padding: 5px;
-  text-align: center;
-}
 
-.increment,
-.decrement {
-  width: 20px;
-  cursor: pointer;
-  text-align: center;
-}
+ 
 
-#div-summary {
-  background-color: #B22020;
-  justify-content: space-evenly;
-  display: flex;
-  flex-direction: row;
-  padding: 10px;
-}
 
-input[type="submit"] {
-  border-radius: none;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  padding: 10px;
-  font-size: 20px;
-  box-shadow: 0 0 0 0;
-  border: 0 none;
-  outline: 0;
-  cursor: pointer;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 
 
