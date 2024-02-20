@@ -19,7 +19,7 @@ async function listData() {
         body: dadosJson,
         headers: myHeaders
     })
-    const userJson = await user.json()
+    const userJson = await user.json();
     inputName.value = `${userJson[0].nome}`
     inputEmail.value = `${userJson[0].email}`
     inputAddress.value = `${userJson[0].endereco}`
@@ -32,5 +32,5 @@ inputSubmit.addEventListener("click", (event) => {
     redirectName()
 })
 async function redirectName() {
-    window.location.href = "../editar-dados"
+    window.location.href = "../editar-dados/index.html"
 }
