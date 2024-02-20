@@ -7,14 +7,14 @@ const container = document.querySelector(".container-wrapper")
 profile.addEventListener("click", (event) => {
   const idUsuario = localStorage.getItem("@foodzilla-userId")
   if (idUsuario) {
-    window.location.href = "/dados/index.html"
+    window.location.href = "/dados"
   }
   else {
-      window.location.href = "/login/index.html"
+      window.location.href = "/login"
   }
 })
 logo.addEventListener("click", (event) => {
-  window.location.href = "/menu/index.html"
+  window.location.href = "/menu"
 })
 search.addEventListener("click", (event) => {
   if (container.style.display == "none") {
@@ -27,7 +27,7 @@ search.addEventListener("click", (event) => {
   }
 })
 cart.addEventListener("click", (event) => {
-  window.location.href=  "/cart/index.html"
+  window.location.href=  "/cart"
 })
 
 class NavMenu {

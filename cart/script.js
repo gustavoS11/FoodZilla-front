@@ -31,9 +31,10 @@ async function displayCart() {
                     <h2>${element.nome}</h2>
                     <h3>R$${preco}</h3>
                 </div>
+                <div></div>
                 <div class="number-input-wrapper">
                     <div class="decrement" data-id="${uniqueId}" onclick="decrement('${uniqueId}')">-</div>
-                    <input type="number" class="number-input" id="${uniqueId}" value="${findElement.quantidade}" min="1" onchange="updateLocalStorage('${element.id}', this.value)">
+                    <input readonly type="number" class="number-input" id="${uniqueId}" value="${findElement.quantidade}" min="1">
                     <div class="increment" data-id="${uniqueId}" onclick="increment('${uniqueId}')">+</div>
                 </div>
             </li>
@@ -125,9 +126,9 @@ async function summary(cart) {
         <select type="text" name="select" id="select"></select>
         <input type="text" name="input-address" id="input-address" value="${addressJson[0].endereco}">
     `)
-    freight(neighborhoodsJson, carrinho)
+    freight(neighborhoodsJson)
 }
-async function freight(neighborhoodsJson, carrinho) {
+async function freight(neighborhoodsJson) {
     const select = document.querySelector("#select")
     neighborhoodsJson.forEach(element => {
         select.insertAdjacentHTML("beforeend", `
@@ -149,7 +150,6 @@ async function finish() {
     const inputAddress = document.querySelector("#input-address")
     const selectNeighborhood = document.querySelector("#select")
     const neighborhood = selectNeighborhood.value
-    console.log(neighborhood)
     const address = inputAddress.value
     const user = localStorage.getItem("@foodzilla-userId")
     localStorage.setItem("@foodzilla-endereco", address)
@@ -164,11 +164,34 @@ async function finish() {
         headers: myHeaders
     })
     const updateAddressJson = await updateAddress.json();
-    const idUsuario = localStorage.getItem("@foodzilla-userId")
-    if (idUsuario) {
-        window.location.href = "/finalizar/index.html"
+    const id_usuario = localStorage.getItem("@foodzilla-userId")
+    if (id_usuario) {
+        const id_usuario = parseInt(localStorage.getItem("@foodzilla-userId"))
+        const dadosInsertOrder = {
+            id: id_usuario
+        }
+        const dadosInsertOrderJson = JSON.stringify(dadosInsertOrder)
+        const order = await fetch(`http://localhost:3000/product/insertOrder`, {
+            method: 'POST',
+            body: dadosInsertOrderJson,
+            headers: myHeaders
+        })
+        const orderJson = await order.json();
+        console.log(orderJson)
+        const dadosSelectOrder = {
+            id_usuario
+        }
+        const dadosSelectOrderJson = JSON.stringify(dadosSelectOrder)
+        const selectOrder = await fetch(`http://localhost:3000/product/selectOrder`, {
+            method: 'POST',
+            body: dadosSelectOrderJson,
+            headers: myHeaders
+        })
+        const selectOrderJson = await selectOrder.json();
+        console.log(selectOrderJson)
+        window.location.href = "/finalizar"
     }
     else {
-        window.location.href = "/login/index.html"
+        window.location.href = "/login"
     }
 }

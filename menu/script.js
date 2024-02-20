@@ -31,7 +31,7 @@ async function listProducts() {
     });
     const inputFinish = document.querySelector("#input-finish")
     inputFinish.addEventListener("click", () => {
-        window.location.href = "/cart/index.html"
+        window.location.href = "/cart"
     })
 }
 listProducts()

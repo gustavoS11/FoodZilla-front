@@ -8,18 +8,13 @@ async function loginUser(dados) {
         body: dadosJson,
         headers: myHeaders
     })
-    console.log(login)
     if (login.status == 200) {
-        //seguir daqui
-       const loginUserJson = await login.json()
-        console.log(loginUserJson)
+        const loginUserJson = await login.json()
 
         setTimeout(() => {
-            window.location.href = "./lista-pedidos/index.html"
+            window.location.href = "./lista-pedidos"
         }, 3000)
     } else {
-        
-        console.log("errado")
     }
 }
 const submit = document.querySelector(".input-submit")
@@ -28,8 +23,7 @@ submit.addEventListener("click", (event) => {
     const email = document.querySelector("#input-email").value
     const senha = document.querySelector("#input-password").value
     const dados = {
-        email,senha
+        email, senha
     }
-    console.log(dados)
     loginUser(dados)
 })

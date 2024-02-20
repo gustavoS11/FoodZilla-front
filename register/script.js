@@ -10,7 +10,7 @@ async function registerUser(dados) {
     })
     if (register.status == 204) {
         setTimeout(() => {
-            window.location.href = "/login/index.html"
+            window.location.href = "/login"
         }, 3000)
     } else {
         toastify("Email ou senha incorretos", "error")

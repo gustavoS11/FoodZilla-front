@@ -17,23 +17,21 @@ main ul {
 }
 
 main {
-    background-color: #b9b9b9;
+    background-image: url(/godirado.PNG);
+    background-size: cover;
+    background-repeat: no-repeat;
     margin: 0 auto;
     width: min-content;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    top: 15vh;
-    height: 85vh;
-}
-
-main h1 {
-    text-align: center;
+    top: 85vh;
+    height: 100%;
 }
 
 #div-divs {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     width: 100%;
 }
@@ -44,10 +42,27 @@ main h1 {
     border-color: black;
     border: 5px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
+    background-color: #ccc5c58a;
+    border-radius: 16px;
+    height: min-content;
+    width: 70%;
+    text-align: center;
+    align-self: center;
+    margin: 15px;
+    justify-content: center;
 }
 
-img {
-    height: 84vh;
+#div-summary {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+    background-color: #ccc5c58a;
+    border-radius: 16px;
+    height: min-content;
+    margin: 15px;
+    width: 70%;
+    align-self: center;
 }

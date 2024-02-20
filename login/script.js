@@ -10,10 +10,10 @@ async function loginUser(dados) {
     })
     if (login.status == 200) {
         const loginUserJson = await login.json()
-        localStorage.setItem("@foodzilla-userId",loginUserJson.id)
-        localStorage.setItem("@foodzilla-userEmail",loginUserJson.email)
+        localStorage.setItem("@foodzilla-userId", loginUserJson.id)
+        localStorage.setItem("@foodzilla-userEmail", loginUserJson.email)
         setTimeout(() => {
-            window.location.href = "../cart/index.html"
+            window.location.href = "../cart"
         }, 1000)
     } else {
         /*toastify("Email ou senha incorretos", "error")*/
