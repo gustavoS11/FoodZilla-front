@@ -22,6 +22,21 @@ main {
   width: 1px;
   height: 2px;
 }
+.order-ul{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.order-li{
+  background-color: whitesmoke;
+  border-radius: 12px;
+  padding: 8px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 @media (max-width: 674px) {
   .img-li {
       width: 80px;
