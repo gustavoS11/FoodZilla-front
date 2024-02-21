@@ -36,6 +36,7 @@ async function displayCart() {
                     <div class="decrement" data-id="${uniqueId}" onclick="decrement('${uniqueId}')">-</div>
                     <input readonly type="number" class="number-input" id="${uniqueId}" value="${findElement.quantidade}" min="1">
                     <div class="increment" data-id="${uniqueId}" onclick="increment('${uniqueId}')">+</div>
+                    <input type="submit" onclick="exclude('${uniqueId}')" value="Excluir" class="exclude">
                 </div>
             </li>
         </ul>`);
@@ -54,6 +55,17 @@ window.decrement = function (id, total) {
     input.stepDown();
     const crement = 2
     updateLocalStorage(id, input.value, crement);
+}
+window.exclude = function (id) {
+    const cartId = '@foodzilla-cart';
+    let cart = JSON.parse(localStorage.getItem(cartId)) || [];
+    const idToRemove = id.split("-")[1];
+    const indexToRemove = cart.findIndex(item => item.id === idToRemove);
+    if (indexToRemove !== -1) {
+        cart.splice(indexToRemove, 1);
+        localStorage.setItem(cartId, JSON.stringify(cart));
+        location.reload();
+    }
 }
 function updateLocalStorage(id, value, crement) {
     const cartId = `@foodzilla-cart`;
@@ -167,10 +179,14 @@ async function finish() {
     const id_usuario = localStorage.getItem("@foodzilla-userId")
     if (id_usuario) {
         const id_usuario = parseInt(localStorage.getItem("@foodzilla-userId"))
+        const cartId = "@foodzilla-cart";
+        let cart = JSON.parse(localStorage.getItem(cartId)) || {};
         const dadosInsertOrder = {
-            id: id_usuario
+            id_usuario: id_usuario,
+            cart : cart
         }
         const dadosInsertOrderJson = JSON.stringify(dadosInsertOrder)
+        console.log(dadosInsertOrderJson)
         const order = await fetch(`http://localhost:3000/product/insertOrder`, {
             method: 'POST',
             body: dadosInsertOrderJson,
@@ -178,17 +194,6 @@ async function finish() {
         })
         const orderJson = await order.json();
         console.log(orderJson)
-        const dadosSelectOrder = {
-            id_usuario
-        }
-        const dadosSelectOrderJson = JSON.stringify(dadosSelectOrder)
-        const selectOrder = await fetch(`http://localhost:3000/product/selectOrder`, {
-            method: 'POST',
-            body: dadosSelectOrderJson,
-            headers: myHeaders
-        })
-        const selectOrderJson = await selectOrder.json();
-        console.log(selectOrderJson)
         window.location.href = "/finalizar"
     }
     else {

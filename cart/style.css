@@ -191,6 +191,10 @@ li div {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.exclude {
+    margin: 5px;
+}
+
 input[type="submit"] {
     border-radius: none;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
