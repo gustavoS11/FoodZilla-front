@@ -45,5 +45,17 @@ async function displayCart() {
         <h1>Obrigado pela preferência!</h1>
         <h2>Seu pedido será entregue dentro de 1 hora no endereço ${endereco}.</h2>
     `)
-    
+
+    window.addEventListener("beforeunload", () => {
+        clearLocalStorageOnExit();
+    });
+}
+function clearLocalStorageOnExit() {
+    const cartId = "@foodzilla-cart";
+    const freteKey = "@foodzilla-frete";
+    const enderecoKey = "@foodzilla-endereco";
+
+    localStorage.removeItem(cartId);
+    localStorage.removeItem(freteKey);
+    localStorage.removeItem(enderecoKey);
 }

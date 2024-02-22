@@ -202,7 +202,8 @@ async function finish() {
         const dadosInsertOrder = {
             id_usuario: id_usuario,
             cart: cart,
-            total : total
+            total : total,
+            endereco : address
         }
         const dadosInsertOrderJson = JSON.stringify(dadosInsertOrder)
         console.log(dadosInsertOrderJson)

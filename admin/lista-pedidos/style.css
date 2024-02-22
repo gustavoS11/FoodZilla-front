@@ -3,19 +3,21 @@
   text-align: center;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   border-radius: 25px;
-  margin: 5px;
+  margin: 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
 }
 .li-divs {
-  width: 100%;
+  width: 50%;
   padding: 8px;
   justify-content: space-between;
 }
 
-#div-products {
+#div-orders {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   margin-top: 15vh;
 }
@@ -25,4 +27,30 @@
   height: 100px;
   object-fit: cover;
   border-radius: 16px;
+}
+
+main ul{
+  background-color: black;
+  border-radius: 16px;
+  margin: 15px;
+  padding: 10px;
+  width: 45%;
+  text-align: center;
+}
+input[type="submit"] {
+  height: 60px;
+  align-self: center;
+  margin-right: 15px;
+  border: none;
+  background-color: #fff;
+  padding: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  cursor: pointer;
+} 
+*{
+  font-weight: 400;
+  font-size: 25px;
+}
+h2{
+  color: #fff;
 }
