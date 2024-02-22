@@ -5,13 +5,13 @@ async function listOrders() {
     const div = document.querySelector("#div-orders");
     async function fetchAndUpdateOrders() {
         try {
-            //console.log("chegou")
+            console.log("chegou")
             const order = await fetch("http://localhost:3000/product/getOrders");
             const orderJson = await order.json();
             const reduceOrder = orderJson.reduce((acc, obj) => {
                 let key = obj.pedido['pedido'];
                 if (!acc[key]) {
-                    acc[key] = { id_pedido: key, total: obj.pedido.total, endereco: obj.pedido.endereco, produtos: [] };
+                    acc[key] = { id_pedido: key, total: obj.pedido.total, endereco: obj.pedido.endereco, nome: obj.pedido.usuario, produtos: [] };
                 }
                 acc[key].produtos.push(obj.produtos);
                 return acc;
@@ -30,12 +30,20 @@ async function listOrders() {
                         </li>
                     `);
                 });
+                const totalParagraph = document.createElement("h2");
+                const total = element.total
+                const Total = total.replace(".", ",");
+                totalParagraph.innerText = `Total: R$${Total}`;
+                ul.appendChild(totalParagraph)
                 const enderecoParagraph = document.createElement("h2");
                 enderecoParagraph.innerText = `Endereço: ${element.endereco}`;
                 ul.appendChild(enderecoParagraph);
+                const nameParagraph = document.createElement("h2");
+                nameParagraph.innerText = `Nome: ${element.nome}`;
+                ul.appendChild(nameParagraph)
                 const finalizarButton = document.createElement("input");
                 finalizarButton.type = "submit";
-                finalizarButton.value = "Finalizar";
+                finalizarButton.value = "Entregar";
                 finalizarButton.className = "submit";
                 finalizarButton.addEventListener("click", async () => {
                     await finalizarPedido(element.id_pedido);
@@ -63,7 +71,6 @@ async function finalizarPedido(id_pedido) {
             headers: myHeaders
         });
         const statusJson = await status.json();
-        console.log(`Pedido ${id_pedido} finalizado!`);
     } catch (error) {
         console.error(`Error finalizing Pedido ${id_pedido}:`, error);
     }

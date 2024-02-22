@@ -168,7 +168,7 @@ async function freight(neighborhoodsJson) {
         const frete = select.options[select.selectedIndex].value
         const bairro = select.options[select.selectedIndex].innerHTML
         localStorage.setItem("@foodzilla-neighborhood", bairro)
-        localStorage.setItem("@foodzilla-frete", frete)
+        localStorage.setItem("@foodzilla-tele", frete)
     });
     const inputSubmit = document.querySelector("#input-finish")
     inputSubmit.addEventListener("click", (event) => {
@@ -202,18 +202,16 @@ async function finish() {
         const dadosInsertOrder = {
             id_usuario: id_usuario,
             cart: cart,
-            total : total,
-            endereco : address
+            total: total,
+            endereco: address
         }
         const dadosInsertOrderJson = JSON.stringify(dadosInsertOrder)
-        console.log(dadosInsertOrderJson)
         const order = await fetch(`http://localhost:3000/product/insertOrder`, {
             method: 'POST',
             body: dadosInsertOrderJson,
             headers: myHeaders
         })
         const orderJson = await order.json();
-        console.log(orderJson)
         window.location.href = "/finalizar"
     }
     else {

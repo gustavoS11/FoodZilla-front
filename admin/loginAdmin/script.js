@@ -8,7 +8,6 @@ async function loginUser(dados) {
         body: dadosJson,
         headers: myHeaders
     })
-    console.log(login)
     if (login.status == 200) {
         const loginUserJson = await login.json()
 

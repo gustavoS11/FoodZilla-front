@@ -9,6 +9,7 @@
   align-items: center;
   padding: 10px;
 }
+
 .li-divs {
   width: 50%;
   padding: 8px;
@@ -23,34 +24,46 @@
 }
 
 .img-li {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
   border-radius: 16px;
 }
 
-main ul{
-  background-color: black;
+main ul {
+  background-color: #1A1919;
   border-radius: 16px;
   margin: 15px;
   padding: 10px;
   width: 45%;
   text-align: center;
 }
+
 input[type="submit"] {
   height: 60px;
   align-self: center;
   margin-right: 15px;
   border: none;
-  background-color: #fff;
+  background-color: #B22020;
+  font-weight: 500;
   padding: 10px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   cursor: pointer;
-} 
-*{
+}
+
+* {
   font-weight: 400;
   font-size: 25px;
 }
-h2{
+
+h2 {
   color: #fff;
+}
+
+main {
+  background-color: #000000;
+}
+
+.header {
+  justify-content: center;
 }
