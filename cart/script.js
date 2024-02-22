@@ -7,41 +7,46 @@ document.addEventListener('DOMContentLoaded', () => {
 displayCart();
 async function displayCart() {
     const cartId = "@foodzilla-cart";
-    let cart = JSON.parse(localStorage.getItem(cartId)) || {};
-
-    const products = await fetch("http://localhost:3000/product");
-    const productsJson = await products.json();
     const divProducts = document.querySelector("#div-products");
     divProducts.innerHTML = "";
-    productsJson.forEach(element => {
-        const price = element.preco;
-        const preco = price.toString().replace(".", ",");
-        const findElement = cart.find((item) => {
-            return item.id == element.id
-        })
-
-        const uniqueId = `quantity-${element.id}`;
-
-        if (findElement) {
-            divProducts.insertAdjacentHTML("beforeend", `
-        <ul>
-            <li><img class="img-li" src="${element.url}" alt="${element.nome}"></li>
-            <li class="li-divs">
-                <div>
-                    <h2>${element.nome}</h2>
-                    <h3>R$${preco}</h3>
-                </div>
-                <div></div>
-                <div class="number-input-wrapper">
-                    <div class="decrement" data-id="${uniqueId}" onclick="decrement('${uniqueId}')">-</div>
-                    <input readonly type="number" class="number-input" id="${uniqueId}" value="${findElement.quantidade}" min="1">
-                    <div class="increment" data-id="${uniqueId}" onclick="increment('${uniqueId}')">+</div>
-                    <input type="submit" onclick="exclude('${uniqueId}')" value="Excluir" class="exclude">
-                </div>
-            </li>
-        </ul>`);
-        }
-    });
+    let cart = JSON.parse(localStorage.getItem(cartId)) || {};
+    if (cart.length != 0) {
+        const products = await fetch("http://localhost:3000/product");
+        const productsJson = await products.json();
+        productsJson.forEach(element => {
+            const price = element.preco;
+            const preco = price.toString().replace(".", ",");
+            const findElement = cart.find((item) => {
+                return item.id == element.id
+            })
+            const uniqueId = `quantity-${element.id}`;
+            if (findElement) {
+                divProducts.insertAdjacentHTML("beforeend", `
+                    <ul>
+                        <li><img class="img-li" src="${element.url}" alt="${element.nome}"></li>
+                            <li class="li-divs">
+                            <div>
+                                <h2>${element.nome}</h2>
+                                <h3>R$${preco}</h3>
+                            </div>
+                            <div></div>
+                            <div class="number-input-wrapper">
+                                <div class="decrement" data-id="${uniqueId}" onclick="decrement('${uniqueId}')">-</div>
+                                <input readonly type="number" class="number-input" id="${uniqueId}" value="${findElement.quantidade}" min="1">
+                                <div class="increment" data-id="${uniqueId}" onclick="increment('${uniqueId}')">+</div>
+                                <input type="submit" onclick="exclude('${uniqueId}')" value="Excluir" class="exclude">
+                            </div>
+                        </li>
+                    </ul>
+                `);
+            }
+        });
+    }
+    if (divProducts.innerHTML == "") {
+        divProducts.insertAdjacentHTML("beforeend", `
+            <h2 id="h2-noItem">Nenhum produto no carrinho!</h2>
+        `)
+    }
     summary(cart)
 }
 window.increment = function (id) {
@@ -109,6 +114,7 @@ async function summary(cart) {
             total += soma
         }
     })
+    localStorage.setItem("@foodzilla-cartTotal", total)
     const Total = total.toFixed(2).toString().replace(".", ",");
     const divSummary = document.querySelector("#div-summary")
     divSummary.innerHTML = ""
@@ -124,21 +130,32 @@ async function summary(cart) {
         id: idUsuario
     }
     const dadosJson = JSON.stringify(dados)
-    const address = await fetch(`http://localhost:3000/user/address`, {
-        method: 'POST',
-        body: dadosJson,
-        headers: myHeaders
-    })
-    const addressJson = await address.json();
     const neighborhoods = await fetch(`http://localhost:3000/product/neighborhoods`)
     const neighborhoodsJson = await neighborhoods.json();
     const divAddress = document.querySelector("#div-address")
-    divAddress.insertAdjacentHTML("beforeend", `
-        <p>Selecione o bairro</p>
-        <select type="text" name="select" id="select"></select>
-        <input type="text" name="input-address" id="input-address" value="${addressJson[0].endereco}">
-    `)
-    freight(neighborhoodsJson)
+    const id_usuario = localStorage.getItem("@foodzilla-userId")
+    if (!id_usuario) {
+        divAddress.insertAdjacentHTML("beforeend", `
+            <p>Selecione o bairro</p>
+            <select type="text" name="select" id="select"></select>
+            <input type="text" name="input-address" id="input-address">
+        `)
+        freight(neighborhoodsJson)
+    }
+    else {
+        const address = await fetch(`http://localhost:3000/user/address`, {
+            method: 'POST',
+            body: dadosJson,
+            headers: myHeaders
+        })
+        const addressJson = await address.json();
+        divAddress.insertAdjacentHTML("beforeend", `
+            <p>Selecione o bairro</p>
+            <select type="text" name="select" id="select"></select>
+            <input type="text" name="input-address" id="input-address" value="${addressJson[0].endereco}">
+        `)
+        freight(neighborhoodsJson)
+    }
 }
 async function freight(neighborhoodsJson) {
     const select = document.querySelector("#select")
@@ -163,27 +180,29 @@ async function finish() {
     const selectNeighborhood = document.querySelector("#select")
     const neighborhood = selectNeighborhood.value
     const address = inputAddress.value
-    const user = localStorage.getItem("@foodzilla-userId")
     localStorage.setItem("@foodzilla-endereco", address)
-    const endereco = {
-        endereco: address,
-        id: user
-    }
-    const dadosJson = JSON.stringify(endereco)
-    const updateAddress = await fetch(`http://localhost:3000/user/updateAddress`, {
-        method: 'POST',
-        body: dadosJson,
-        headers: myHeaders
-    })
-    const updateAddressJson = await updateAddress.json();
     const id_usuario = localStorage.getItem("@foodzilla-userId")
     if (id_usuario) {
+        const user = localStorage.getItem("@foodzilla-userId")
+        const endereco = {
+            endereco: address,
+            id: user
+        }
+        const dadosJson = JSON.stringify(endereco)
+        const updateAddress = await fetch(`http://localhost:3000/user/updateAddress`, {
+            method: 'POST',
+            body: dadosJson,
+            headers: myHeaders
+        })
+        const updateAddressJson = await updateAddress.json();
         const id_usuario = parseInt(localStorage.getItem("@foodzilla-userId"))
         const cartId = "@foodzilla-cart";
         let cart = JSON.parse(localStorage.getItem(cartId)) || {};
+        const total = JSON.parse(localStorage.getItem("@foodzilla-cartTotal"))
         const dadosInsertOrder = {
             id_usuario: id_usuario,
-            cart : cart
+            cart: cart,
+            total : total
         }
         const dadosInsertOrderJson = JSON.stringify(dadosInsertOrder)
         console.log(dadosInsertOrderJson)

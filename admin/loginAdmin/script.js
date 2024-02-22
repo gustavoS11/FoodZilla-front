@@ -8,11 +8,12 @@ async function loginUser(dados) {
         body: dadosJson,
         headers: myHeaders
     })
+    console.log(login)
     if (login.status == 200) {
         const loginUserJson = await login.json()
 
         setTimeout(() => {
-            window.location.href = "./lista-pedidos"
+            window.location.href = "../lista-pedidos"
         }, 3000)
     } else {
     }
@@ -27,3 +28,4 @@ submit.addEventListener("click", (event) => {
     }
     loginUser(dados)
 })
+

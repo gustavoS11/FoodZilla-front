@@ -1,6 +1,7 @@
 body {
-  background-image: url(/FOODZILLAusuário.png);
+  background-image: url(/FOODZILLAadmin.png);
   background-size: cover;
+  max-height: 100%;
 }
 
 .div-dados {
@@ -18,7 +19,7 @@ body {
   transform: translate(50%);
   margin: 10px;
   width: max-content;
-  background-color: rgba(217, 217, 217, 0.726);
+  background-color: rgba(247, 247, 247, 0.726);
   border-radius: 16px;
 }
 

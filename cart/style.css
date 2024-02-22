@@ -191,6 +191,12 @@ li div {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+#h2-noItem {
+    color: #fff;
+    justify-content: center;
+    display: flex;
+}
+
 .exclude {
     margin: 5px;
 }

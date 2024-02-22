@@ -27,6 +27,7 @@ main {
 
 input {
   border-radius: 16px;
+  padding: 5px;
 }
 
 .input-submit {
