@@ -19,6 +19,9 @@ body {
   height: 100vh;
   font-family: Creepster;
 }
+a{
+  cursor: pointer;
+}
 
 main {
   width: 100%;

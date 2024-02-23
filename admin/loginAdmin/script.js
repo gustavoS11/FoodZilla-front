@@ -12,7 +12,7 @@ async function loginUser(dados) {
         const loginUserJson = await login.json()
 
         setTimeout(() => {
-            window.location.href = "../lista-pedidos"
+            window.location.href = "../listaPedidos"
         }, 3000)
     } else {
     }

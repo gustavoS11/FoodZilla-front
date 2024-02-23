@@ -3,6 +3,17 @@ const search = document.querySelector(".img-search")
 const logo = document.querySelector(".img-logo")
 const cart = document.querySelector(".img-cart")
 const container = document.querySelector(".container-wrapper")
+const dadosLink = document.querySelector("#dados-link")
+
+dadosLink.addEventListener("click", (event) =>{
+  const idUsuario = localStorage.getItem("@foodzilla-userId")
+  if (!idUsuario) {
+    window.location.href = "/login"
+  }
+  else {
+    window.location.href = "/dados"
+  }
+})
 
 profile.addEventListener("click", (event) => {
   const idUsuario = localStorage.getItem("@foodzilla-userId")
@@ -10,7 +21,7 @@ profile.addEventListener("click", (event) => {
     window.location.href = "/dados"
   }
   else {
-      window.location.href = "/login"
+    window.location.href = "/login"
   }
 })
 logo.addEventListener("click", (event) => {
@@ -27,45 +38,50 @@ search.addEventListener("click", (event) => {
   }
 })
 cart.addEventListener("click", (event) => {
-  window.location.href=  "/cart"
+  const idUsuario = localStorage.getItem("@foodzilla-userId")
+  if (idUsuario) {
+    window.location.href = "/cart"
+  }
+  else {
+    window.location.href = "/login"
+  }
 })
 
 class NavMenu {
-    constructor(Menu, navList, navLinks) {
-      this.Menu = document.querySelector(Menu);
-      this.navList = document.querySelector(navList);
-      this.navLinks = document.querySelectorAll(navLinks);
-      this.activeClass = "active";
-      this.handleClick = this.handleClick.bind(this);
-    }
-
-    animateLinks() {
-      this.navLinks.forEach((link, index) => {
-        link.style.animation
-          ? (link.style.animation = "")
-          : (link.style.animation = `navLinkFade 0.5s ease forwards ${
-              index / 7 + 0.3
-            }s`);
-      });
-    }
-
-    handleClick() {
-      this.navList.classList.toggle(this.activeClass);
-      this.Menu.classList.toggle(this.activeClass);
-      this.animateLinks();
-    }
-
-    addClickEvent() {
-      this.Menu.addEventListener("click", this.handleClick);
-    }
-
-    init() {
-      if (this.Menu) {
-        this.addClickEvent();
-      }
-      return this;
-    }
+  constructor(Menu, navList, navLinks) {
+    this.Menu = document.querySelector(Menu);
+    this.navList = document.querySelector(navList);
+    this.navLinks = document.querySelectorAll(navLinks);
+    this.activeClass = "active";
+    this.handleClick = this.handleClick.bind(this);
   }
+
+  animateLinks() {
+    this.navLinks.forEach((link, index) => {
+      link.style.animation
+        ? (link.style.animation = "")
+        : (link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3
+          }s`);
+    });
+  }
+
+  handleClick() {
+    this.navList.classList.toggle(this.activeClass);
+    this.Menu.classList.toggle(this.activeClass);
+    this.animateLinks();
+  }
+
+  addClickEvent() {
+    this.Menu.addEventListener("click", this.handleClick);
+  }
+
+  init() {
+    if (this.Menu) {
+      this.addClickEvent();
+    }
+    return this;
+  }
+}
 const navMenu = new NavMenu(
   ".menu",
   ".nav-list",
@@ -75,6 +91,6 @@ navMenu.init();
 
 class NavSearch {
   constructor() {
-    
+
   }
 }
