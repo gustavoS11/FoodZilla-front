@@ -10,7 +10,7 @@ async function displayCart() {
     const divProducts = document.querySelector("#div-products");
     divProducts.innerHTML = "";
     let cart = JSON.parse(localStorage.getItem(cartId)) || {};
-    if (cart.length != 0) {
+    if (cart.length > 0) {
         const products = await fetch("http://localhost:3000/product");
         const productsJson = await products.json();
         productsJson.forEach(element => {
@@ -41,13 +41,17 @@ async function displayCart() {
                 `);
             }
         });
+        summary(cart)
     }
-    if (divProducts.innerHTML == "") {
+    else{
         divProducts.insertAdjacentHTML("beforeend", `
             <h2 id="h2-noItem">Nenhum produto no carrinho!</h2>
         `)
+        const classe = "noItems"
+        divProducts.classList.toggle(classe)
+        const divSummary = document.querySelector("#div-summary")
+        divSummary.style.display = "none"
     }
-    summary(cart)
 }
 window.increment = function (id) {
     const input = document.getElementById(id);
@@ -95,7 +99,6 @@ function updateLocalStorage(id, value, crement) {
     summary(cart)
 }
 async function summary(cart) {
-    const carrinho = cart
     const products = await fetch("http://localhost:3000/product");
     const productsJson = await products.json();
     let total = 0
@@ -134,11 +137,13 @@ async function summary(cart) {
     const neighborhoodsJson = await neighborhoods.json();
     const divAddress = document.querySelector("#div-address")
     const id_usuario = localStorage.getItem("@foodzilla-userId")
+    const endereco = localStorage.getItem("@foodzilla-endereco")
     if (!id_usuario) {
+        const endereco = localStorage.getItem("@foodzilla-endereco")
         divAddress.insertAdjacentHTML("beforeend", `
             <p>Selecione o bairro</p>
             <select type="text" name="select" id="select"></select>
-            <input type="text" name="input-address" id="input-address">
+            <input type="text" name="input-address" id="input-address" value="${endereco}">
         `)
         freight(neighborhoodsJson)
     }
@@ -149,15 +154,24 @@ async function summary(cart) {
             headers: myHeaders
         })
         const addressJson = await address.json();
+        if (addressJson[0].length > 0) {
+            localStorage.setItem("@foodzilla-endereco", addressJson[0].endereco)
+        }
+        const endereco = localStorage.getItem("@foodzilla-endereco")
         divAddress.insertAdjacentHTML("beforeend", `
             <p>Selecione o bairro</p>
             <select type="text" name="select" id="select"></select>
-            <input type="text" name="input-address" id="input-address" value="${addressJson[0].endereco}">
+            <input type="text" name="input-address" id="input-address" value="${endereco}">
         `)
         freight(neighborhoodsJson)
     }
 }
 async function freight(neighborhoodsJson) {
+    const inputAddress = document.querySelector("#input-address")
+    inputAddress.addEventListener('input', function () {
+        const address = inputAddress.value
+        localStorage.setItem("@foodzilla-endereco", address)
+    })
     const select = document.querySelector("#select")
     neighborhoodsJson.forEach(element => {
         select.insertAdjacentHTML("beforeend", `
@@ -171,9 +185,16 @@ async function freight(neighborhoodsJson) {
         localStorage.setItem("@foodzilla-tele", frete)
     });
     const inputSubmit = document.querySelector("#input-finish")
-    inputSubmit.addEventListener("click", (event) => {
-        finish()
-    })
+    const endereco = localStorage.getItem("@foodzilla-endereco")
+    if (endereco.length > 0) {
+        inputSubmit.addEventListener("click", (event) => {
+            console.log(chegou)
+            finish()
+        })
+    }
+    else {
+        alert("Você deve preencher o campo do seu endereço!")
+    }
 }
 async function finish() {
     const inputAddress = document.querySelector("#input-address")
